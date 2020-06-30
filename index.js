@@ -33,8 +33,11 @@ app.use(function (req, res, next) {
   next();
 });
 var config = require("./config/config.json");
-var firebase = require('firebase');
-firebase.initializeApp(config);
+var admin = require('firebase-admin');
+admin.initializeApp({
+  credential: admin.credential.applicationDefault(),
+  databaseURL: 'https://agirar-2017.firebaseio.com/'
+});
 
 var auth = require("./middlewares/auth");
 
@@ -58,10 +61,10 @@ app.get('*', function (req, res, next) {
 app.use(express.static(path.join(__dirname, "public")));
 
 var usersList;
-var usersRef = firebase.database().ref("associados");
+var usersRef = admin.database().ref("associados");
 var usersKey;
 var originalData;
-var newsRef = firebase.database().ref("newsletter");
+var newsRef = admin.database().ref("newsletter");
 
 usersRef.on("value", function (data) {
   usersList = [];
@@ -135,7 +138,7 @@ app.post("/searchUser", function (req, res) {
 });
 
 // ROUTES GESTAO ATELIERS
-var atRef = firebase.database().ref("ateliers");
+var atRef = admin.database().ref("ateliers");
 var ateliersList, ateliersKey, atOriginalData;
 
 atRef.on("value", function (data) {
@@ -289,7 +292,7 @@ app.post("/editAtelier", function (req, res) {
 
 // EVENTS ROUTER
 
-var eventsRef = firebase.database().ref("eventos");
+var eventsRef = admin.database().ref("eventos");
 var eventosList, eventosKey, eventosOriginalData;
   var numWorkshops, numEventos, numAtividades, numSessoes;
 
@@ -443,7 +446,7 @@ app.get("/getStats", function (req, res) {
 
 
 // HISTORA
-var timeRef = firebase.database().ref("timeline");
+var timeRef = admin.database().ref("timeline");
 var timeList, timeKey, timeOriginalData;
 
 timeRef.on("value", function (data) {

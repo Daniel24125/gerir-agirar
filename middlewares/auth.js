@@ -1,4 +1,4 @@
-var firebase = require('firebase');
+var firebase = require('firebase-admin');
 var auth = firebase.auth();
 var express = require('express');
 var cookieParser = require("cookie-parser")
@@ -13,6 +13,7 @@ router.use(cookieParser())
 router.post("/login", function(req, res) {
   var email = req.body.email;
   var pass = req.body.password;
+  console.log(firebase)
   var promise = auth.signInWithEmailAndPassword(email, pass);
   promise
     .then(function(user) {
