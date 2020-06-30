@@ -1,0 +1,161 @@
+.newEventFormContainer
+  position: fixed 
+  z-index: 2000
+  width: 40% 
+  background: white
+  border-radius: 2px 
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+  @include centerHorVer
+  transition: all 500ms ease
+  .chooseFileContainer
+    width: 100% 
+    height: 20vh
+    background: $flatBlue
+    position: relative
+    background-size: cover
+    background-position: center
+    input
+      opacity: 0 
+      visibility: hidden
+      z-index: -1
+    label 
+      position: absolute
+      @include centerHorVer
+      text-align: center
+      width: 50px 
+      height: 50px 
+      border-radius: 100% 
+      background: $flatOrange
+      color: white
+      cursor: pointer
+      transition: all 100ms ease
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+      &:hover 
+        border: 3px solid $flatOrange
+        background: none
+      .imageLabelContainer
+        position: absolute
+        @include centerHorVer
+        font-size: 12px
+        span 
+          font-size: 25px
+  .informationContainer
+    width: 70% 
+    position: relative 
+    @include centerHor
+    display: flex 
+    justify-content: center 
+    flex-direction: row 
+    flex-wrap: wrap
+    .btnContainer
+      position: absolute
+      z-index: 1000
+      right: 0 
+      top: 0 
+      transform: translate(50%, -50%)
+      display: flex 
+      flex-direction: row
+      .btn
+        width: 50px 
+        height: 50px 
+        position: relative 
+        border-radius: 100% 
+        transition: all 100ms ease 
+        cursor: pointer
+        color: white
+        margin: 0 5px
+        font-size: 16px
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+        span 
+          position: absolute
+          @include centerHorVer
+      .saveEventContainer
+        background: $flatDarkBlue
+        &:hover 
+          background: $flatDarkGrey
+      .cancelEventContainer
+        background: $flatRed
+        &:hover 
+          background: $flatDarkRed
+    .inputContainer
+      width: 100% 
+      height: 80px 
+      position: relative 
+      label
+        position: absolute
+        bottom: 0
+        left: 20px
+        z-index: 700
+        padding: 5px 10px
+        font-weight: 300
+        color: $textColor
+        opacity: 0.8
+        font-size: 12px
+        transition: all 300ms ease
+      .moveLabel
+        transform: translate(-10px, -40px)
+        color: $flatBlue
+        font-size: 14px
+        font-weight: 500
+      input
+        position: absolute
+        bottom: 0         
+        left: 20px
+        width: 90%
+        padding: 10px
+        border: none
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+        background: none
+        z-index: 800
+    .halfInput
+      width: 50%
+    .emptyInput
+      border: 1px solid $flatRed !important
+    .eventTypeContainer
+      width: 100% 
+      margin-top: 20px
+      display: flex
+      flex-direction: row
+      justify-content: center
+      position: relative
+      .mainEventContainer
+        position: absolute
+        right: 0 
+        color: $flatLightGrey
+        padding: 10px 
+        cursor: pointer
+        font-size: 20px
+        .selectedMain 
+          color: $flatRed
+      .type
+        width: 14%
+        height: 20px
+        transition: all 100ms ease
+        position: relative
+        text-align: center
+        .typeText 
+          width: 30px
+          height: 30px 
+          position: relative
+          cursor: pointer
+          color: black
+          span
+            position: absolute
+            @include centerHorVer     
+      .typeSelected 
+        .typeText 
+          border-radius: 100%
+          color: white 
+    .descContainer 
+      width: 100% 
+      height: 150px
+      padding: 30px 0 
+      textarea 
+        width: 100% 
+        height: 100% 
+        border: 1px solid white 
+        border-radius: 2px 
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)    
+        background: white
+        padding: 10px
+        resize: none

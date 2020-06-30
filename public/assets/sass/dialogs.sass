@@ -1,0 +1,144 @@
+
+.deleteDialogContainer
+  width: 30%
+  height: 150px 
+  background: white
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+  border-radius: 2px
+  position: fixed
+  @include centerHorVer
+  z-index: 101
+  font-size: 20px
+  opacity: 0
+  visibility: hidden
+  .text 
+    position: absolute
+    top: 30px
+    left: 40px
+    color: $textColor
+  .btnContainer
+    position: absolute
+    bottom: 20px
+    right: 0
+    span 
+      padding: 20px
+      cursor: pointer
+      color: $flatBlue
+    .confirm:hover
+      color: $flatGreen
+    .cancel:hover
+      color: $flatRed
+.errorMessage, .successMessage
+  width: 100% 
+  position: absolute 
+  top: 1px
+  z-index: 8000
+  padding: 15px 20px 
+  background-color: $errorBackground
+  color: $flatRed
+  transition: all 500ms ease-out
+  transform: translateY(-100%)
+  opacity: 0
+  visibility: hidden
+.successMessage
+  background-color: $successBackground
+  color: $flatGreen
+.showFormMessage
+  transform: translateY(0)
+  opacity: 1
+  visibility: visible 
+.blurContainer
+  position: fixed
+  width: 100%
+  height: 100vh
+  background: url("http://res.cloudinary.com/agirar/image/upload/v1513460987/blur_soylch.jpg")
+  z-index: 100
+  background-size: cover
+  background-position: center
+  opacity: 0.95
+  transition: all 500ms ease
+.blackBackground
+  width: 100%
+  height: 100%
+  background: black
+  opacity: 0
+  visibility: hidden
+  position: fixed
+  z-index: 100
+.informationDialogContainer
+  width: 60% 
+  height: 80vh 
+  position: absolute
+  z-index: 10000
+  background: white 
+  @include centerHorVer
+  @include cardStyle
+
+  .infoTitleContainer
+    width: 100% 
+    background: #00bcd4
+    color: white   
+    @include cardStyle 
+    border-radius: 0
+    .headerContainer
+      width: 100% 
+      height: 10vh
+      background: #00bcd4
+      display: flex
+      align-items: center 
+      padding-left: 50px
+      font-size: 20px 
+      font-weight: 500
+      position: relative  
+      .closeInfoDialog
+        position: absolute
+        right: 20px 
+        @include centerVer
+        font-size: 14px
+        cursor: pointer
+        &:hover 
+          color: $flatOrange
+    .infoTabsContainer
+      ul
+        width: 100% 
+        height: 10vh
+        display: flex 
+        flex-direction: row 
+        li
+          width: 20% 
+          height: 100% 
+          display: flex 
+          flex-direction: column
+          justify-content: center
+          align-items: center
+          border: 3px solid #00bcd4
+          cursor: pointer 
+          text-transform: uppercase
+          font-weight: 500
+          color: #80deea
+          span 
+            margin-bottom: 5px
+          &:hover
+            border-bottom-color: $flatOrange
+        .tabSelected 
+          border-bottom-color: $flatOrange
+          color: white
+  .infoContentContainer
+    width: 100% 
+    height: 377px
+    overflow-y: auto 
+    overflow-x: hidden
+    .infoTextContainer 
+      width: 100% 
+      padding: 20px
+      .symbolsContainer
+        width: 100% 
+        display: flex 
+        flex-direction: row 
+        flex-wrap: wrap
+        p 
+          padding: 0 10px
+      .categorias 
+        p 
+          padding: 0 30px
+        

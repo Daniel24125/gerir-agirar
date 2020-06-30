@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gestão Agirar</title>
+  <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:100,300,400,500,700" rel="stylesheet">
+  <link href="assets/css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <script src="https://use.fontawesome.com/c633fd4a23.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/functions.js"></script>
+
+  <nav>
+    <div class="navContainer">
+      <div class="navHeaderContainer">
+        <h2>AGIRAR</h2>
+      </div>
+      <div class="itemsListContainer">
+        <ul>
+          <li id="users" class="active">
+            <span class="fa fa-user"></span> &nbsp; Associados</li>
+          <li id="ateliers">
+            <span class="fa fa-paint-brush"></span> &nbsp; Ateliers</li>
+          <li id="eventos">
+            <span class="fa fa-calendar"></span> &nbsp; Eventos</li>
+          <li id="historia">
+            <span class="fa fa-history"></span> &nbsp; História</li>
+          <li id="newsletter">
+            <span class="fa fa-newspaper-o"></span> &nbsp; Newsletter</li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header>
+    <div class="headerContainer">
+      <div class="menuIconContainer">
+        <div class="line lineTop"></div>
+        <div class="line lineCenter"></div>
+        <div class="line lineBottom"></div>
+      </div>
+      <div class="btnContainer">
+        <div class="btn informationBtnContainer">
+          <span>INFO</span>
+        </div>
+        <div class="btn logoutBtnContainer">
+          <span>LOGOUT</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="blackBackground"></div>
+  <div class="informationDialogContainer hide">
+    <div class="infoTitleContainer">
+      <div class="headerContainer">
+        Informações
+        <div class="closeInfoDialog">
+          <span class="fa fa-times"></span>
+        </div>
+      </div>
+      <div class="infoTabsContainer">
+        <ul>
+          <li id="usersTab" class="tabSelected"> Associados</li>
+          <li id="ateliersTab"> Ateliers</li>
+          <li id="eventosTab"> Eventos</li>
+          <li id="historiaTab"> História</li>
+          <li id="newsletterTab"> Newsletter</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="infoContentContainer">
+      <div class="infoTextContainer">
+        <div class="tabContent usersTab">
+          <p> Esta secção destina-se a mostrar a lista de todos os associados bem como os seus respetivos dados.
+          </p>
+          <p> É também possível adicionar, remover ou editar os dados dos associados que se encontram na lista:
+          </p>
+          <p> &nbsp;&nbsp;- Para adicionar basta clicar no botão azul, no topo da tabela, com o sinal "+" e preencher o formulário;
+          </p>
+          <p>
+            &nbsp;&nbsp;- Para eliminar o registo de um associado basta clicar no botão &nbsp;
+            <span class="fa fa-ellipsis-v"></span> &nbsp; para abrir a lista de opções onde poderá clicar em ELIMINAR;
+          </p>
+          <p>
+            &nbsp;&nbsp;- Para editar os dados de um associado basta clicar no botão &nbsp;
+            <span class="fa fa-ellipsis-v"></span> &nbsp; para abrir a lista de opções onde poderá clicar em EDITAR. De seguida é só modificar os dados
+            que pretende;
+          </p>
+          <p>&nbsp;&nbsp; - Para visualizar toa a informação referente a um associado basta clicar no símbolo &nbsp;
+            <span class="fa fa-info-circle"></span>. Os símbolos aí presentes representam:
+          </p>
+          <div class="symbolsContainer">
+            <p style="font-family:'FontAwesome', Arial;"> &#xf007; Nome
+            </p>
+            <p style="font-family:'FontAwesome', Arial;"> &#xf0e0; Email
+            </p>
+            <p style="font-family:'FontAwesome', Arial;"> &#xf095; Telefone
+            </p>
+            <p style="font-family:'FontAwesome', Arial;"> &#xf015; Morada
+            </p>
+            <p style="font-family:'FontAwesome', Arial;"> &#xf024; Cód. Postal
+            </p>
+            <p style="font-family:'FontAwesome', Arial;"> &#xf041; Localidade
+            </p>
+            <p style="font-family:'FontAwesome', Arial;"> &#xf073; Data de Nascimento
+            </p>
+            <p style="font-family:'FontAwesome', Arial;"> &#xf19c; NIF
+            </p>
+            <p style="font-family:'FontAwesome', Arial;"> &#xf0d6; Contribuição
+            </p>
+            <p style="font-family:'FontAwesome', Arial;"> &#xf09d; NIB
+            </p>
+            <p style="font-family:'FontAwesome', Arial;"> &#xf201; Freq. de Pagamento
+            </p>
+            <p style="font-family:'FontAwesome', Arial;"> &#xf0ad; Modo de Pagamento
+            </p>
+          </div>
+
+        </div>
+        <div class="hide tabContent ateliersTab">
+          <p> Esta secção destina-se a mostrar a lista de todos os aterliers bem como os seus respetivos dados.</p>
+          <p>Pode visualizar a infromação respetiva a cada atelier ao clicar no seu nome;</p>
+          <p>Nesta secção pode adicionar, editar ou remover os ateliers:</p>
+          <p>&nbsp;&nbsp;&nbsp; - Para adicionar um atelier basta clicar em "Adicionar Atelier" com um sina de "+" e preencher
+            o formulário;</p>
+          <p> &nbsp;&nbsp;&nbsp;- Para editar a informação de um atelier basta clicar no botão &nbsp;
+            <span class="fa fa-ellipsis-v"></span> &nbsp; para abrir a lista de opções onde poderá clicar em EDITAR. De seguida pode modificar a informação
+            que pretende;
+          </p>
+          <p>
+            &nbsp;&nbsp;&nbsp;- Para eliminar o registo de um associado basta clicar no botão &nbsp;
+            <span class="fa fa-ellipsis-v"></span> &nbsp; para abrir a lista de opções onde poderá clicar em ELIMINAR;
+          </p>
+        </div>
+        <div class="hide tabContent eventosTab">
+          Esta secção destina-se a mostrar a lista de todos os eventos bem como os seus respetivos dados.
+          <p>&nbsp;&nbsp;&nbsp;- Os eventos da Agirar estão divididos em diferentes categorias: </p>
+          <div class="categorias">
+            <p>
+              <strong>A</strong> - Atividades: Destinado a atividades como &nbsp;<strong>caminhadas</strong>, &nbsp; <strong>aulas de pilates</strong>, etc. </p>
+            <p>
+              <strong>S</strong> - Sessões: Destinado a apresentações formativas; </p>
+            <p>
+              <strong>W</strong> - Workshops: Destinado a identificar os workshops que foram realizados pela Agirar;</p>
+            <p>
+              <strong>E</strong> - Eventos: Destinado a identificar eventos da Agirar como o seu aniversário.</p>
+          </div>
+          <p>&nbsp;&nbsp;&nbsp;- O símbolo
+            <span class="fa fa-heart"></span> &nbsp; tem o propósito de indicar quais os eventos serão mostrados no site como eventos principais (eventos
+            representados por cartões grandes no site);</p>
+          <p>&nbsp;&nbsp;&nbsp;- Nesta secção pode também adicionar, editar e eliminar eventos</p>
+        </div>
+        <div class="hide tabContent historiaTab">
+          <p>Esta secção destina-se a mostrar a lista de todos os marcos históricos da Agirar.</p>
+          <p>Aqui pode definir o nº de marcos históricos que serão mostrados no site da Agirar. Para isso basta passar o rato
+            em cima do local que mostra o nº de marcos visíveis onde irá aparecer o símbolo &nbsp;
+            <span class="fa fa-pencil"></span>. Ao clicar no símbolo poderá escrever o nº de marcos visíveis que deseja e finalizar ao clicar no símbolo
+            <span class="fa fa-floppy-o"></span>.
+          </p>
+          <p>Nesta secção poderá também adicionar, editar ou eliminar marcos históricos:</p>
+          <div class="categorias">
+            <p>
+              - Para editar um marco histórico basta clicar no símbolo &nbsp;  <span class="fa fa-pencil"></span> 
+              do respetivo cartão;
+            </p>
+            <p>
+              - Para eliminar um marco histórico basta clicar no símbolo &nbsp;  <span class="fa fa-trash"></span> 
+              do respetivo cartão.
+            </p>
+          </div>
+
+        </div>
+        <div class="hide tabContent newsletterTab">
+          Esta secção destina-se a mostrar a lista de todos os emails (tanto de associados como não associados) que estão registados
+          para receber a newsletter da Agirar.
+        </div>
+      </div>
+    </div>
+  </div>
+  <iframe src="users.html" frameborder="0"></iframe>
+</body>
+
+</html>

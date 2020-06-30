@@ -1,0 +1,151 @@
+#events
+  width: 100% 
+  height: 100% 
+  overflow-y: auto 
+  background: $flatGrey
+  .eventOptionsContainer
+    width: 100% 
+    height: 25% 
+    display: flex 
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    .infoContainer
+      width: 90% 
+      height: 70px
+      background: white 
+      @include cardStyle
+      display: flex
+      flex-direction: row 
+      justify-content: space-around
+      align-items: center
+      .addNewEventBtn
+        padding: 10px 20px 
+        border-top-left-radius: 20px
+        border-bottom-left-radius: 20px
+        border-top-right-radius: 20px
+        border-bottom-right-radius: 20px
+        background: $flatBlue
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+        color: white
+        cursor: pointer 
+        &:hover 
+          background: $flatDarkBlue
+  .eventsContainer
+    width: 90%
+    margin-left: 5%
+    display: flex 
+    flex-direction: row
+    justify-content: center
+    flex-wrap: wrap
+    .card 
+      width: 28%
+      height: 400px
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+      background: white
+      border-radius: 5px
+      z-index: 1
+      position: relative
+      margin: 30px 20px  
+      
+      .cardHeader
+        width: 100%
+        height: 50%
+        background-position: center top
+        background-size: cover
+        position: relative
+        padding: 0 10px
+        .cardTitle
+          position: absolute
+          bottom: 10px;
+          left: 20px
+          color: white
+          width: 90%
+          h3, h5
+           font-weight: 200
+           text-align: left
+          h5
+            color: $flatGrey
+            opacity: 0.8
+            font-size: 13px
+          .eventPrice
+            position: absolute
+            bottom: 0
+            right: 25px 
+            padding: 3px 10px 
+            border-top-left-radius: 10px
+            border-bottom-left-radius: 10px
+            border-top-right-radius: 10px
+            border-bottom-right-radius: 10px
+            background: $flatBlue
+            font-size: 10px
+
+      .cardContent
+        width: 100%
+        height: 40%
+        text-align: left
+        text-color: $textColor
+        padding: 15px
+        position: relative
+        .mainCardIconContainer
+          position: absolute
+          right: 15px 
+          top: 10px 
+          color: $flatLightGrey
+          cursor: pointer
+          font-size: 20px
+        .eyeSelected
+          color: $flatRed
+      .cardFooter
+        width: 100%
+        height: 10%
+        position: relative
+        .btnContainer
+          position: absolute
+          right: 20px
+          @include centerVer
+          span
+            margin: 0 5px
+            cursor: pointer
+            &:hover 
+              font-weight: bold
+          .edit
+            color: $flatOrange
+          .delete
+            color: $flatRed
+.atividade
+  background: $flatBlue
+.sessão
+  background: $flatRed
+.workshop
+  background: $flatOrange
+.evento
+  background: $flatGreen
+.eventTypeContainer, .numMainEventsContainer
+  width: 150px 
+  display: flex 
+  flex-direction: row
+  align-items: center
+  margin-bottom: 10px
+  .eventType
+    width: 25px 
+    height: 25px  
+    margin: 0 10px 
+    border-radius: 100%
+    color: white
+    position: relative
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+    span 
+      position: absolute
+      @include centerHorVer
+  .eventText
+    color: $flatDarkGrey
+    font-weight: bold
+.numMainEventsContainer
+  width: 200px
+  color: $flatDarkGrey
+  font-weight: bold
+  .icon
+    color: $flatRed
+    font-size: 20px
+    margin-right: 5px

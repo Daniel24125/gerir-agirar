@@ -1,0 +1,368 @@
+#ateliers 
+  width: 100%
+  height: 100%
+  overflow-y: auto
+  background: $flatGrey
+  .atelierDialogContainer
+    width: 30%
+    min-width: 400px
+    background: white
+    height: 60vh
+    border-radius: 2px
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)     
+    z-index: 2000
+    position: fixed
+    @include centerHorVer
+    transition: all 500ms ease
+    @include mQ(420px)
+      height: 80vh
+      width: 100%
+      min-width: 100px
+    .dialogHeader
+      width: 100%
+      height: 40%
+      background: $flatBlue
+      position: relative
+      .dialogHeaderContainer
+        position: absolute
+        @include centerHorVer
+        width: 100% 
+        height: 100px     
+        .photo
+          width: 100px
+          height: 100px
+          border-radius: 100% 
+          position: absolute    
+          left: 30px
+          background-size: cover
+          background-position: center
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+          @include mQ(400px)
+            visibility: hidden
+            opacity: 0
+        .titleContainer
+          position: absolute
+          right: 20px
+          width: 55%
+          color: white
+          font-size: 20px
+          text-align: right
+          font-weight: bold
+          @include mQ(400px)
+            text-align: center
+            width: 100%
+            font-size: 16px
+            right: 0
+        .informationContainer
+          position: absolute
+          bottom: 0
+          right: 20px
+          color: white
+          @include mQ(400px)
+            text-align: center
+            width: 100%
+            right: 0
+    .dialogContentContainer
+      width: 100%
+      position: relative
+      margin: 20px
+      @include mQ(350px)
+        margin: 20px 5px
+        
+      .dialogDescTitle
+        color: $flatDarkGrey
+        font-weight: bold
+        font-size: 18px
+        @include mQ(350px)
+          font-size: 15px
+      p
+        font-size: 14px
+        color: $textColor
+        width: 90%
+        text-align: justify
+        @include mQ(350px)
+          font-size: 12px
+
+  .ateliersContainer
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    padding: 50px
+    text-align: center
+    flex-shrink: 0
+    justify-content: center
+    .cardContainer
+      width: 30%
+      height: 65vh
+      padding: 20px
+      position: relative
+      @include mQ(1220px)
+        width: 40%
+      @include mQ(700px)
+        width: 70%
+        @include centerHor
+        padding: 0
+      @include mQ(450px)
+        width: 90%
+       
+      .card, .newCard
+        width: 90%
+        height: 90%
+        background: white
+        position: relative
+        @include centerHorVer
+        border-radius: 2px
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)     
+        cursor: pointer
+        .titleContainer
+          position: absolute
+          bottom: 0
+          color: white
+          width: 100%
+          font-size: 24px
+          text-align: left
+          font-weight: 200
+          height: 100%
+          transition: all 100ms ease-out
+          line-height: 1.5
+          &:hover .hoverCard
+            opacity: 0.8
+          .hoverCard
+            background: black 
+            opacity: 0.2
+            width: 100% 
+            height: 100% 
+          
+          .optionsContainer
+            position: absolute
+            right: 0px 
+            top: 0px 
+            cursor: pointer 
+            padding: 10px 20px
+            z-index: 500
+            &:hover 
+              color: $flatOrange
+          .optionListContainer
+            position: absolute
+            right: 0
+            top: 60%
+            transform: translateX(80%)
+            width: 100px
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+            font-weight: 300
+            font-size: 16px
+            color: $flatBlue
+            ul
+              li 
+                background: white
+                padding: 10px 
+                cursor: pointer
+                &:hover
+                    font-weight: 500
+              .edit:hover
+                color: $flatOrange
+              .delete:hover
+                color: $flatRed
+          .textContainer
+            position: absolute
+            width: 80%
+            text-align: center
+            @include centerHorVer
+            transition: all 300ms ease
+      .newCard
+       .titleContainer
+        color: $flatBlue
+        font-size: 60px 
+        font-weight: bold
+        &:hover .hoverCard 
+          opacity: 0.2
+        .hoverCard
+          opacity: 0
+        p
+         font-size: 15px 
+  .hide
+    opacity: 0
+    visibility: hidden
+    
+  .newAtelierFormContainer
+    position: fixed 
+    z-index: 2000
+    width: 40% 
+    background: white
+    border-radius: 2px 
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+    @include centerHorVer
+    transition: all 500ms ease
+    .chooseFileContainer
+      width: 100% 
+      height: 30vh
+      background: $flatBlue
+      position: relative
+      background-size: cover
+      background-position: center
+      input
+        opacity: 0 
+        visibility: hidden
+        z-index: -1
+      label 
+        position: absolute
+        @include centerHorVer
+        text-align: center
+        width: 90px 
+        height: 90px 
+        border-radius: 100% 
+        background: $flatOrange
+        color: white
+        cursor: pointer
+        transition: all 100ms ease
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+        &:hover 
+          border: 3px solid $flatOrange
+          background: none
+        .imageLabelContainer
+          position: absolute
+          @include centerHorVer
+          font-size: 12px
+          span 
+            font-size: 35px
+    .informationContainer
+      width: 70% 
+      position: relative 
+      @include centerHor
+      .btnContainer
+        position: absolute
+        z-index: 1000
+        right: 0 
+        top: 0 
+        transform: translate(50%, -50%)
+        display: flex 
+        flex-direction: row
+        .btn
+          width: 50px 
+          height: 50px 
+          position: relative 
+          border-radius: 100% 
+          transition: all 100ms ease 
+          cursor: pointer
+          color: white
+          margin: 0 5px
+          font-size: 16px
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+          span 
+            position: absolute
+            @include centerHorVer
+        .saveAtelierContainer
+          background: $flatDarkBlue
+          &:hover 
+            background: $flatDarkGrey
+        .cancelAtelierContainer
+          background: $flatRed
+          &:hover 
+            background: $flatDarkRed
+      .titleContainer
+        width: 100% 
+        height: 80px 
+        position: relative 
+        label
+          position: absolute
+          bottom: 0
+          left: 20px
+          z-index: 700
+          padding: 5px 10px
+          font-weight: 300
+          color: $textColor
+          opacity: 0.8
+          font-size: 12px
+          transition: all 300ms ease
+        .moveLabel
+          transform: translate(-10px, -40px)
+          color: $flatBlue
+          font-size: 14px
+          font-weight: 500
+        input
+          position: absolute
+          bottom: 0         
+          left: 20px
+          width: 80%
+          padding: 10px
+          border: none
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+          background: none
+          z-index: 800
+      .emptyInput
+        border: 1px solid $flatRed !important
+      .daysContainer
+        width: 100% 
+        padding: 20px
+        display: flex
+        flex-direction: row
+        justify-content: center
+        .day
+          width: 14%
+          height: 50px
+          transition: all 100ms ease
+          position: relative
+          text-align: center
+          .dayText 
+            width: 30px
+            height: 30px 
+            position: relative
+            cursor: pointer
+            span
+              position: absolute
+              @include centerHorVer     
+        .daySelected 
+          .dayText 
+            border-radius: 100%
+            background: $flatBlue
+            color: white 
+      .timeContainer 
+        width: 100% 
+        height: 40px 
+        position: relative 
+        display: flex 
+        flex-direction: row 
+        .inputContainer
+          width: 50% 
+          heigth: 100% 
+          position: relative
+          label
+            position: absolute
+            @include centerVer
+            left: 20px
+            z-index: 700
+            padding: 5px 10px
+            font-weight: 300
+            color: $textColor
+            opacity: 0.8
+            font-size: 12px
+            transition: all 300ms ease
+          .moveLabel
+            transform: translate(-10px, -50px)
+            color: $flatBlue
+            font-size: 14px
+            font-weight: 500
+          input
+            position: absolute
+            @include centerVer         
+            left: 20px
+            width: 70%
+            padding: 10px
+            border: none
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+            background: none
+            z-index: 800
+      .descContainer 
+        width: 100% 
+        height: 150px
+        padding: 30px 0 
+        textarea 
+          width: 100% 
+          height: 100% 
+          border: 1px solid white 
+          border-radius: 2px 
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)    
+          background: white
+          padding: 10px
+          resize: none
+          

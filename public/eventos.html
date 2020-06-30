@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:100,300,400,500,700" rel="stylesheet">
+  <link href="assets/css/events/compiledEventos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <script src="https://use.fontawesome.com/c633fd4a23.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/events/events.js"></script>
+
+  <section id="events">
+      <div class="loadingContainer">
+          <div class="loaingContentContainer">
+              <div class="spiner"></div>
+              A carregar...
+          </div>
+        </div>
+    <div class="blackBackground"></div>
+    <div class="deleteDialogContainer">
+      <span class="text">Eliminar registo?</span>
+      <div class="btnContainer">
+        <span class="confirm">SIM</span>
+        <span class="cancel">NÃO</span>
+      </div>
+    </div>
+    <div class="errorMessage">
+      <small>
+        <span class="fa fa-exclamation-triangle"></span> &nbsp;
+        <span class="msg"></span>
+      </small>
+    </div>
+    <div class="successMessage">
+      <small>
+        <span class="fa fa-check"></span> &nbsp;
+        <span class="msg"></span>
+      </small>
+    </div>
+    <div class="blurContainer hide"></div>
+    <div class="newEventFormContainer hide">
+
+      <div class="loadingContainer hide">
+        <div class="loaingContentContainer">
+          <div class="spiner"></div>
+          Aguarde um momento...
+        </div>
+      </div>
+
+      <form enctype="multipart/form-data" id="submitEventForm">
+        <div class="chooseFileContainer">
+          <input type="file" name="image" id="eventImage">
+          <label for="eventImage">
+            <div class="imageLabelContainer">
+              <p>
+                <span class="fa fa-upload"></span>
+              </p>
+            </div>
+          </label>
+        </div>
+        <div class="informationContainer">
+          <div class="btnContainer">
+            <div class="btn saveEventContainer">
+              <span class="fa fa-floppy-o"></span>
+            </div>
+            <div class="btn cancelEventContainer">
+              <span class="fa fa-times"></span>
+            </div>
+          </div>
+
+          <div class="inputContainer">
+            <label for="eventNome">Nome do evento</label>
+            <input type="text" name="eventNome" id="eventNome">
+          </div>
+          <div class="eventTypeContainer">
+            <div class="mainEventContainer">
+              <span class="fa fa-heart"></span>
+            </div>
+            <div class="type">
+              <div data-type="Atividade" class="typeText">
+                <span>A</span>
+              </div>
+            </div>
+            <div class="type">
+              <div data-type="Sessão" class="typeText">
+                <span>S</span>
+              </div>
+            </div>
+            <div class="type">
+              <div data-type="Workshop" class="typeText">
+                <span>W</span>
+              </div>
+            </div>
+            <div class="type">
+              <div data-type="Evento" class="typeText">
+                <span>E</span>
+              </div>
+            </div>
+          </div>
+          <div class="inputContainer halfInput">
+            <label for="localizacao">Localização</label>
+            <input type="text" name="localizacao" id="localizacao">
+          </div>
+          <div class="inputContainer halfInput">
+            <label for="price">Preço</label>
+            <input type="text" name="price" id="price">
+          </div>
+          <div class="inputContainer halfInput">
+              <label for="data">Data</label>
+              <input type="text" name="data" id="data">
+            </div>
+          <div class="inputContainer halfInput">
+            <label for="hora">Horário</label>
+            <input type="text" name="hora" id="hora">
+          </div>
+          <div class="descContainer">
+            <textarea placeholder="Descrição" name="description" id="description"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="eventOptionsContainer">
+      <div class="infoContainer">
+        <div class="eventTypeContainer mpzero">
+          <div class="eventType atividade">
+            <span>A</span>
+          </div>
+          <div class="eventText">
+            <span class="numberAtividade"></span> Atividades
+          </div>
+        </div>
+        <div class="eventTypeContainer mpzero">
+          <div class="eventType sessão">
+            <span>S</span>
+          </div>
+          <div class="eventText">
+            <span class="numberSessao"></span> Sessões
+          </div>
+        </div>
+        <div class="eventTypeContainer mpzero">
+          <div class="eventType workshop">
+            <span>W</span>
+          </div>
+          <div class="eventText">
+            <span class="numberWorkshop"></span> Workshops
+          </div>
+        </div>
+        <div class="eventTypeContainer mpzero">
+          <div class="eventType evento">
+            <span>E</span>
+          </div>
+          <div class="eventText">
+            <span class="numberEvento"></span> Eventos
+          </div>
+        </div>
+        <div class="mpzero numMainEventsContainer">
+          <span class="icon fa fa-heart"></span> &nbsp; <span class="numMainEvents"></span> &nbsp; Eventos selecionados
+        </div>
+        <div class="addNewEventBtn">
+          ADICIONAR EVENTO
+        </div>
+      </div>
+    </div>
+    <div class="eventsContainer">
+    </div>
+  </section>
+</body>
+
+</html>

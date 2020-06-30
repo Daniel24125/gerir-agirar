@@ -1,0 +1,119 @@
+#newsletter 
+  width: 100% 
+  height: 100vh 
+  background: $flatGrey 
+  overflow-y: auto; 
+  .newsletterItemsContainer
+    width: 100%  
+    display: flex 
+    justify-content: center 
+    flex-direction: row 
+    flex-wrap: wrap
+    font-weight: bold 
+    .statsContainer
+      width: 80% 
+      height: 70px 
+      @include cardStyle 
+      background: white 
+      margin: 20px 
+      display: flex 
+      flex-direction: row 
+      flex-wrap: nowrap
+      align-items: center 
+      justify-content: space-around
+      .infoContainer
+        display: flex 
+        align-items: center 
+        justify-content: center
+        width: 250px
+        .addNewNewsletterBtn
+          padding: 10px 20px 
+          border-top-left-radius: 20px
+          border-bottom-left-radius: 20px
+          border-top-right-radius: 20px
+          border-bottom-right-radius: 20px
+          background: $flatBlue
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+          color: white
+          cursor: pointer 
+          &:hover 
+            background: $flatDarkBlue
+        .sendNewsletter
+          padding: 10px 20px 
+          border-top-left-radius: 20px
+          border-bottom-left-radius: 20px
+          border-top-right-radius: 20px
+          border-bottom-right-radius: 20px
+          background: $flatOrange
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+          color: white
+          cursor: pointer 
+          &:hover 
+            background: $flatDarkOrange
+    .newsItemContainer 
+      width: 25% 
+      min-width: 300px 
+      background: white 
+      @include cardStyle 
+      height: 70px
+      margin: 5px 10px
+      display: flex 
+      align-items: center 
+      position: relative
+      transition: all 500ms ease
+      .deleteContainer
+        position: absolute
+        right: 0 
+        color: $flatDarkGrey 
+        padding: 15px
+        cursor: pointer
+        &:hover 
+          color: $flatRed
+      .btnContainer
+        position: absolute
+        right: 10px
+        display: flex 
+        flex-direction: row 
+        color: $flatDarkGrey
+        .btn 
+          cursor: pointer
+          padding: 5px
+        .saveNewContainer
+          color: $flatBlue
+        .cancelNewContainer
+          color: $flatRed
+      input 
+        border: white 
+        border-bottom: 2px solid $flatBlue
+        padding: 5px 0
+        margin-left: 10px
+        
+.iconContainer 
+  width: 30px 
+  height: 30px
+  @include cardStyle  
+  border-radius: 100% 
+  margin: 0 5px 0 10px 
+  display: flex 
+  align-items: center 
+  justify-content: center 
+  font-weight: 300 
+.newIcon
+  background: $flatLightGrey
+  cursor: pointer
+
+.newIconAssociate:hover
+  background: $flatOrange
+  color: white 
+
+.newIconNonAssociate:hover
+  background: $flatRed
+  color: white 
+
+.associate
+  background: $flatOrange
+  color: white 
+.nonAssociate 
+  background: $flatRed
+  color: white 
+

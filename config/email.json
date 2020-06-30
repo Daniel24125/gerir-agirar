@@ -1,0 +1,12 @@
+{
+  "host": "mail.agirar.pt",
+  "port": 465,
+  "secure": true,
+  "auth": {
+      "user": "info@agirar.pt", 
+      "pass": "agirar2013"  
+  },
+  "tls":{
+    "rejectUnauthorized":false
+  }
+}

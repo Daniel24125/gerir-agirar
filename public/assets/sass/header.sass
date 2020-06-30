@@ -1,0 +1,47 @@
+.headerContainer
+  width: 100%
+  position: absolute
+  height: $navHeight
+  background: $flatBlue
+  left: 0
+  transition: all 500ms ease-out
+  z-index: 50
+  .menuIconContainer 
+    width: 30px
+    position: absolute
+    height: $navHeight
+    cursor: pointer
+    transition: all 100ms ease-in-out
+    top: 0px
+    left: 20px
+    padding: 0 5px
+    &:hover .line
+      background-color: $flatOrange
+    .line 
+      position: absolute
+      background: white
+      width: 30px
+      height: 2px
+      left: 50%
+      transform: translateX(-50%)
+      transition: all 100ms ease
+    .lineTop 
+      top: 39%
+    .lineCenter 
+      top: 50%
+    .lineBottom 
+      top: 61%
+  .btnContainer 
+    position: absolute
+    right: 10px 
+    height: 100% 
+    display: flex 
+    align-items: center 
+    justify-content: space-between
+    .btn
+      color: white
+      cursor: pointer
+    .informationBtnContainer:hover 
+      color: $flatOrange
+    .logoutBtnContainer:hover 
+      color: $flatRed

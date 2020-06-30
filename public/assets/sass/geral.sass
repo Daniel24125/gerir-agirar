@@ -1,0 +1,49 @@
+body, html
+  margin: 0
+  padding: 0
+  width: 100%
+  overflow: hidden
+  height: 100vh
+*
+  font-family: 'Roboto', sans-serif
+
+.mpzero
+  margin: 0 !important
+  padding: 0 !important
+
+ul
+  padding: 0
+  margin: 0
+  list-style-type: none
+
+a
+  text-decoration: inherit
+  color: inherit
+  cursor: auto
+  &:link
+  text-decoration: inherit
+  color: inherit
+  cursor: auto
+  &:visited
+    text-decoration: inherit
+    color: inherit
+    cursor: auto
+
+.fadeIn
+  visibility: visible
+  opacity: 1
+  z-index: 101
+
+iframe
+  width: 100%
+  position: relative
+  top: $navHeight
+
+              
+.hideComponent 
+  transform: translateY(-200%)
+  opacity: 0 
+  visibility: hidden
+
+.emptyInput
+    border: 1px solid $flatRed !important

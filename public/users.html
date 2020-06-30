@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:100,300,400,500,700" rel="stylesheet">
+  <link href="assets/css/users/users.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <script src="https://use.fontawesome.com/c633fd4a23.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/users/users.js"></script>
+
+  <div class="usersContainer">
+    <div class="cardContainer">
+      <span class="closeCard fa fa-times"></span>
+      <div class="cardHeaderContainer"></div>
+      <div class="cardContentContainer">
+        <div class="avatarContainer">
+          <span class="fa fa-user"></span>
+        </div>
+        <div class="mainTextContainer">
+          <p>
+            <span class="name"></span>
+          </p>
+          <p>
+            <span class="email"></span>
+          </p>
+          <p>
+            <span class="phone"></span>
+          </p>
+        </div>
+        <div class="otherInfoContainer">
+          <div class="infoContainer">
+            <span class="icon fa fa-home"></span>
+            <span class="morada">&nbsp;</span>
+          </div>
+          <div class="infoContainer">
+            <span class="icon fa fa-flag"></span>
+            <span class="codPostal">&nbsp;</span>
+            <span class="icon fa fa-map-marker"></span>
+            <span class="localidade">&nbsp;</span>
+          </div>
+          <div class="infoContainer">
+            <span class="icon fa fa-calendar"></span>
+            <span class="dataNascimento">&nbsp;</span>
+            <span class="icon fa fa-university"></span>
+            <span class="nif">&nbsp;</span>
+          </div>
+
+          <div class="infoContainer">
+            <span class="icon fa fa-money"></span>
+            <span class="contribuicao">&nbsp;</span> euros
+            <span class="icon fa fa-credit-card-alt"></span>
+            <span class="nib">&nbsp;</span>
+          </div>
+          <div class="infoContainer">
+            <span class="icon fa fa-line-chart"></span>
+            <span class="freqPagamento"></span>
+            <span class="icon fa fa-wrench"></span>
+            <span class="modoPagamento"></span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="blackBackground"></div>
+    <div class="deleteDialogContainer">
+      <span class="text">Eliminar registo?</span>
+      <div class="btnContainer">
+        <span class="confirm">SIM</span>
+        <span class="cancel">NÃO</span>
+      </div>
+    </div>
+    <div class="blurBackground"></div>
+    <div class="formMessage">
+      <small>
+        <span class="fa fa-exclamation-triangle"></span> &nbsp;Por favor verifique se preencheu todos os campos corretamente </small>
+    </div>
+    <div class="noSearchResults">
+      <small>
+        <span class="fa fa-exclamation-triangle"></span> &nbsp;Não foi encontrado nenhum registo </small>
+    </div>
+    <div class="formMessageCounts">
+      <small>
+        <span class="fa fa-exclamation-triangle"></span> &nbsp; Por favor verifique se a contribuição que selecionou é superior a 6€ por trimestre</small>
+    </div>
+    <div class="userFormContainer">
+
+      <div class="fillUserData">
+        <div class="fieldContainer">
+          <label for="nome">Nome Completo</label>
+          <input class="nome" type="text" name="nome">
+        </div>
+        <div class="fieldContainer">
+          <label for="morada">Morada</label>
+          <input class="morada" type="text" name="morada">
+        </div>
+        <div class="fieldContainer">
+          <div class="parFieldContainer">
+            <label for="codPostal">Código Postal</label>
+            <input class="codPostal" type="text" name="codPostal">
+          </div>
+          <div class="parFieldContainer">
+            <label for="localidade">Localidade</label>
+            <input class="localidade" type="text" name="localidade">
+          </div>
+        </div>
+        <div class="fieldContainer">
+          <label for="email">Email</label>
+          <input class="email" type="text" name="email">
+        </div>
+        <div class="fieldContainer">
+          <div class="parFieldContainer">
+            <label for="dataNascimento">Data de Nascimento</label>
+            <input class="dataNascimento" type="text" name="dataNascimento">
+          </div>
+          <div class="parFieldContainer">
+            <label for="telefone">Telefone</label>
+            <input class="telefone" type="text" name="telefone">
+          </div>
+        </div>
+      </div>
+      <div class="fillUserData">
+        <div class="fieldContainer">
+          <div class="parFieldContainer">
+            <label for="nif">NIF</label>
+            <input class="nif" type="text" name="nif">
+          </div>
+          <div class="parFieldContainer">
+            <label for="contribuicao">Contribuição</label>
+            <input class="contribuicao" type="text" name="contribuicao">
+          </div>
+        </div>
+        <div class="fieldContainer">
+          <div class="parFieldContainer">
+            <select name="freqPagamento" class="freqPagamento">
+              <option value="default">Frequência de Pagamento</option>
+              <option value="3">Trimestral</option>
+              <option value="6">Semestral</option>
+              <option value="12">Anual</option>
+            </select>
+          </div>
+          <div class="parFieldContainer">
+            <select name="modoPagamento" class="modoPagamento">
+              <option value="default">Modo de Pagamento</option>
+              <option value="tranferencia">Transferência Bancária</option>
+              <option value="debito">Débito Direto</option>
+            </select>
+          </div>
+        </div>
+        <div class="fieldContainer">
+          <label for="nib">NIB</label>
+          <input class="nib" type="text" name="nib">
+        </div>
+        <div class="saveNewUser">
+          <div class="btnContent">
+            <span class="fa fa-floppy-o"></span> &nbsp; GUARDAR
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="searchAreaContainer">
+      <div class="searchContainer">
+        <form action="">
+          <input type="text" name="searchUser" id="searchUser" placeholder="Insira o termo que deseja pesquisar">
+          <select style="font-family:'FontAwesome', Arial;" class="searchParameter" id="searchParameter">
+            <option style="font-family:'FontAwesome', Arial;" value="nome">
+              &#xf007; Nome
+            </option>
+            <option style="font-family:'FontAwesome', Arial; " value="email">
+              &#xf0e0; Email
+            </option>
+            <option style="font-family:'FontAwesome', Arial; " value="telefone">
+              &#xf095; Telefone
+            </option>
+            <option style="font-family:'FontAwesome', Arial; " value="morada">
+              &#xf015; Morada
+            </option>
+            <option style="font-family:'FontAwesome', Arial; " value="codPostal">
+              &#xf024; Cód. Postal
+            </option>
+            <option style="font-family:'FontAwesome', Arial; " value="localidade">
+              &#xf041; Localidade
+            </option>
+            <option style="font-family:'FontAwesome', Arial; " value="dataNascimento">
+              &#xf073; Data de Nascimento
+            </option>
+            <option style="font-family:'FontAwesome', Arial; " value="nif">
+              &#xf19c; NIF
+            </option>
+            <option style="font-family:'FontAwesome', Arial; " value="contribuicao">
+              &#xf0d6; Contribuição
+            </option>
+            <option style="font-family:'FontAwesome', Arial; " value="nib">
+              &#xf09d; NIB
+            </option>
+            <option style="font-family:'FontAwesome', Arial; " value="freqPagamento">
+              &#xf201; Freq. de Pagamento
+            </option>
+            <option style="font-family:'FontAwesome', Arial; " value="modoPagamento">
+              &#xf0ad; Modo de Pagamento</option>
+
+          </select>
+          <div class="searchBtn">
+            <span class="fa fa-search"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="usersListContainerArea">
+        <div class="loadingContainer hide">
+            <div class="loaingContentContainer">
+              <div class="spiner"></div>
+              Aguarde um momento...
+            </div>
+          </div>
+      <div class="usersListContainer">
+        <table id="tableHeader">
+          <tr>
+            <th class="photoContainer" >
+              <div class="addUserContainer">
+                <span class="fa fa-plus"></span>
+              </div>
+            </th>
+            <th>NOME</th>
+            <th>EMAIL</th>
+            <th>TELEFONE</th>
+            <th>NIF</th>
+            <th></th>
+          </tr>
+        </table>
+        <table id="userContainer"></table>
+      </div>
+    </div>
+  </div>
+
+  <div class="closeUserForm">
+    <span class="fa fa-times"></span>
+  </div>
+</body>
+
+</html>

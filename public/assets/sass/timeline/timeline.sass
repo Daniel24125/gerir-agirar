@@ -1,0 +1,196 @@
+#history
+  width: 100% 
+  height: 100vh 
+  background: $flatGrey
+  display: flex
+  align-items: flex-end
+  flex-wrap: wrap
+  .historyOptionsContainer
+    width: 100% 
+    heigth: 20vh 
+    display: flex 
+    align-items: center
+    justify-content: center
+    .historyStatsContainer
+      width: 90% 
+      height: 70px 
+      background: white 
+      @include cardStyle
+      display: flex 
+      justify-content: space-around
+      .itemStatContainer, .totalVisibleCardsContainer
+        display: flex
+        align-items: center
+        justify-content: center 
+        color: $flatDarkGrey
+        font-weight: bold
+        margin: 0 20px
+        .addNewTimeBtn
+          padding: 10px 20px 
+          border-top-left-radius: 20px
+          border-bottom-left-radius: 20px
+          border-top-right-radius: 20px
+          border-bottom-right-radius: 20px
+          background: $flatBlue
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+          color: white
+          cursor: pointer 
+          &:hover 
+            background: $flatDarkBlue
+        .statIconContainer 
+          width: 30px 
+          height: 30px 
+          position: relative
+          border-radius: 100% 
+          color: white 
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+          margin-right: 10px
+          span 
+            position: absolute 
+            @include centerHorVer
+        .totalIcon 
+          background: $flatRed
+      .totalVisibleCardsContainer
+        &:hover .editVisibleCards
+          transform: translateY(0)
+          opacity: 1
+          visibility: visible
+        .visibleCards 
+          background: $flatYellow
+          font-size: 18px
+        .editVisibleCards
+          color: $flatYellow
+          margin-left: 15px
+          cursor: pointer
+          transition: all 300ms ease-out
+          transform: translateY(-200%)
+          opacity: 0
+          visibility: hidden
+        input
+          width: 30px 
+          background: white 
+          border: 1px solid white 
+          border-bottom: 2px solid $flatBlue 
+          color: blue 
+        .saveVisibleCards
+          color: $flatBlue
+          cursor: pointer
+        .cancelVisibleCards
+          color: $flatRed
+          cursor: pointer
+  .historyContainer
+    width: 100%
+    height: 80vh
+    position: relative 
+    overflow-x: auto
+    overflow-y: hidden
+    text-align: center
+    cursor: grab
+    &::-webkit-scrollbar 
+      height: 5px
+      background-color: #cecece
+    &::-webkit-scrollbar-thumb 
+      background-color: $flatBlue
+    .historyListContainer
+      position: relative
+      text-align: center
+      height: 100%
+      .listItemContainer
+        width: 300px
+        height: 100%
+        display: inline-block
+        position: relative
+        transition: all 500ms ease-in
+        &:last-child
+          .dotContainer:before
+            content: none
+        .historyCardContainer
+          width: 100%
+          height: 70vh
+          position: relative
+          .cardContainer
+            width: 90%
+            height: 90%
+            background: white
+            color: $textColor
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+            position: absolute
+            @include centerHorVer
+            border-radius: 5px
+            .cardTitle
+              width: 100%
+              height: 40px
+              background: $flatBlue
+              color: white
+              position: relative
+              span
+                position: absolute
+                @include centerHorVer
+                font-size: 16px
+                font-weight: 300
+                width: 100%
+            .cardHeader
+              width: 100%
+              height: 50%
+              background-size: cover
+              background-position: center
+              position: relative
+              .btnContainer
+                position: absolute
+                bottom: 0px
+                width: 100%
+                height: 30px
+                display: flex
+                align-items: center 
+                justify-content: flex-start
+                z-index: 2
+                span
+                  cursor: pointer 
+                  padding: 5px
+                .editTime 
+                  color: $flatYellow 
+                .deleteTime 
+                  color: $flatRed
+              .dateContainer
+                position: absolute
+                bottom: 0px
+                width: 100%
+                height: 30px
+                font-size: 12px
+                color: $flatGrey
+                background: black
+                opacity: 0.8
+
+                .textContainer
+                  position: absolute
+                  right: 20px
+                  @include centerVer
+            .cardContent
+              padding: 15px 10px
+              color: $textColor
+              font-size: 10px
+        .dotContainer
+          position: relative
+          .dot
+            width: 16px
+            height: 16px
+            background: $flatBlue
+            border-radius: 100%
+            position: absolute
+            @include centerHor
+          &::before
+            content: ""
+            width: 100%
+            height: 2px
+            background: $flatBlue
+            position: absolute
+            top: 7px
+
+.statContent 
+  transition: all 300ms ease-out  
+
+
+.visibleInputEmpty
+  border-bottom-color: $flatRed
+
+

@@ -1,0 +1,767 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 100vh; }
+
+* {
+  font-family: 'Roboto', sans-serif; }
+
+.mpzero {
+  margin: 0 !important;
+  padding: 0 !important; }
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none; }
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto; }
+  a:visited {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto; }
+
+.fadeIn {
+  visibility: visible;
+  opacity: 1;
+  z-index: 101; }
+
+iframe {
+  width: 100%;
+  position: relative;
+  top: 60px; }
+
+.hideComponent {
+  -webkit-transform: translateY(-200%);
+  -ms-transform: translateY(-200%);
+  transform: translateY(-200%);
+  opacity: 0;
+  visibility: hidden; }
+
+.emptyInput {
+  border: 1px solid #e74c3c !important; }
+
+.loadingContainer {
+  width: 100%;
+  height: 100%;
+  background: white;
+  position: absolute;
+  z-index: 10000;
+  -webkit-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease; }
+  .loadingContainer .loaingContentContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center; }
+    .loadingContainer .loaingContentContainer .spiner {
+      border: 8px solid #ebebeb;
+      border-top: 8px solid #2980b9;
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      -webkit-animation: spin 700ms ease-in-out infinite;
+      animation: spin 700ms ease-in-out infinite;
+      margin-bottom: 20px; }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+.deleteDialogContainer {
+  width: 30%;
+  height: 150px;
+  background: white;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 2px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  font-size: 20px;
+  opacity: 0;
+  visibility: hidden; }
+  .deleteDialogContainer .text {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    color: #777; }
+  .deleteDialogContainer .btnContainer {
+    position: absolute;
+    bottom: 20px;
+    right: 0; }
+    .deleteDialogContainer .btnContainer span {
+      padding: 20px;
+      cursor: pointer;
+      color: #2980b9; }
+    .deleteDialogContainer .btnContainer .confirm:hover {
+      color: #27ae60; }
+    .deleteDialogContainer .btnContainer .cancel:hover {
+      color: #e74c3c; }
+
+.errorMessage, .successMessage {
+  width: 100%;
+  position: absolute;
+  top: 1px;
+  z-index: 8000;
+  padding: 15px 20px;
+  background-color: #ffdad6;
+  color: #e74c3c;
+  -webkit-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden; }
+
+.successMessage {
+  background-color: #dff0d8;
+  color: #27ae60; }
+
+.showFormMessage {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible; }
+
+.blurContainer {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: url("http://res.cloudinary.com/agirar/image/upload/v1513460987/blur_soylch.jpg");
+  z-index: 100;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.95;
+  -webkit-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease; }
+
+.blackBackground {
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  z-index: 100; }
+
+.informationDialogContainer {
+  width: 60%;
+  height: 80vh;
+  position: absolute;
+  z-index: 10000;
+  background: white;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 5px; }
+  .informationDialogContainer .infoTitleContainer {
+    width: 100%;
+    background: #00bcd4;
+    color: white;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 5px;
+    border-radius: 0; }
+    .informationDialogContainer .infoTitleContainer .headerContainer {
+      width: 100%;
+      height: 10vh;
+      background: #00bcd4;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding-left: 50px;
+      font-size: 20px;
+      font-weight: 500;
+      position: relative; }
+      .informationDialogContainer .infoTitleContainer .headerContainer .closeInfoDialog {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        font-size: 14px;
+        cursor: pointer; }
+        .informationDialogContainer .infoTitleContainer .headerContainer .closeInfoDialog:hover {
+          color: #f39c12; }
+    .informationDialogContainer .infoTitleContainer .infoTabsContainer ul {
+      width: 100%;
+      height: 10vh;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row; }
+      .informationDialogContainer .infoTitleContainer .infoTabsContainer ul li {
+        width: 20%;
+        height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        border: 3px solid #00bcd4;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #80deea; }
+        .informationDialogContainer .infoTitleContainer .infoTabsContainer ul li span {
+          margin-bottom: 5px; }
+        .informationDialogContainer .infoTitleContainer .infoTabsContainer ul li:hover {
+          border-bottom-color: #f39c12; }
+      .informationDialogContainer .infoTitleContainer .infoTabsContainer ul .tabSelected {
+        border-bottom-color: #f39c12;
+        color: white; }
+  .informationDialogContainer .infoContentContainer {
+    width: 100%;
+    height: 377px;
+    overflow-y: auto;
+    overflow-x: hidden; }
+    .informationDialogContainer .infoContentContainer .infoTextContainer {
+      width: 100%;
+      padding: 20px; }
+      .informationDialogContainer .infoContentContainer .infoTextContainer .symbolsContainer {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+        .informationDialogContainer .infoContentContainer .infoTextContainer .symbolsContainer p {
+          padding: 0 10px; }
+      .informationDialogContainer .infoContentContainer .infoTextContainer .categorias p {
+        padding: 0 30px; }
+
+#ateliers {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background: #ebebeb; }
+  #ateliers .atelierDialogContainer {
+    width: 30%;
+    min-width: 400px;
+    background: white;
+    height: 60vh;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    z-index: 2000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease; }
+    @media screen and (max-width: 420px) {
+      #ateliers .atelierDialogContainer {
+        height: 80vh;
+        width: 100%;
+        min-width: 100px; } }
+    #ateliers .atelierDialogContainer .dialogHeader {
+      width: 100%;
+      height: 40%;
+      background: #2980b9;
+      position: relative; }
+      #ateliers .atelierDialogContainer .dialogHeader .dialogHeaderContainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100px; }
+        #ateliers .atelierDialogContainer .dialogHeader .dialogHeaderContainer .photo {
+          width: 100px;
+          height: 100px;
+          border-radius: 100%;
+          position: absolute;
+          left: 30px;
+          background-size: cover;
+          background-position: center;
+          -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+          @media screen and (max-width: 400px) {
+            #ateliers .atelierDialogContainer .dialogHeader .dialogHeaderContainer .photo {
+              visibility: hidden;
+              opacity: 0; } }
+        #ateliers .atelierDialogContainer .dialogHeader .dialogHeaderContainer .titleContainer {
+          position: absolute;
+          right: 20px;
+          width: 55%;
+          color: white;
+          font-size: 20px;
+          text-align: right;
+          font-weight: bold; }
+          @media screen and (max-width: 400px) {
+            #ateliers .atelierDialogContainer .dialogHeader .dialogHeaderContainer .titleContainer {
+              text-align: center;
+              width: 100%;
+              font-size: 16px;
+              right: 0; } }
+        #ateliers .atelierDialogContainer .dialogHeader .dialogHeaderContainer .informationContainer {
+          position: absolute;
+          bottom: 0;
+          right: 20px;
+          color: white; }
+          @media screen and (max-width: 400px) {
+            #ateliers .atelierDialogContainer .dialogHeader .dialogHeaderContainer .informationContainer {
+              text-align: center;
+              width: 100%;
+              right: 0; } }
+    #ateliers .atelierDialogContainer .dialogContentContainer {
+      width: 100%;
+      position: relative;
+      margin: 20px; }
+      @media screen and (max-width: 350px) {
+        #ateliers .atelierDialogContainer .dialogContentContainer {
+          margin: 20px 5px; } }
+      #ateliers .atelierDialogContainer .dialogContentContainer .dialogDescTitle {
+        color: #222222;
+        font-weight: bold;
+        font-size: 18px; }
+        @media screen and (max-width: 350px) {
+          #ateliers .atelierDialogContainer .dialogContentContainer .dialogDescTitle {
+            font-size: 15px; } }
+      #ateliers .atelierDialogContainer .dialogContentContainer p {
+        font-size: 14px;
+        color: #777;
+        width: 90%;
+        text-align: justify; }
+        @media screen and (max-width: 350px) {
+          #ateliers .atelierDialogContainer .dialogContentContainer p {
+            font-size: 12px; } }
+  #ateliers .ateliersContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 50px;
+    text-align: center;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    #ateliers .ateliersContainer .cardContainer {
+      width: 30%;
+      height: 65vh;
+      padding: 20px;
+      position: relative; }
+      @media screen and (max-width: 1220px) {
+        #ateliers .ateliersContainer .cardContainer {
+          width: 40%; } }
+      @media screen and (max-width: 700px) {
+        #ateliers .ateliersContainer .cardContainer {
+          width: 70%;
+          left: 50%;
+          -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+          padding: 0; } }
+      @media screen and (max-width: 450px) {
+        #ateliers .ateliersContainer .cardContainer {
+          width: 90%; } }
+      #ateliers .ateliersContainer .cardContainer .card, #ateliers .ateliersContainer .cardContainer .newCard {
+        width: 90%;
+        height: 90%;
+        background: white;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        border-radius: 2px;
+        -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        cursor: pointer; }
+        #ateliers .ateliersContainer .cardContainer .card .titleContainer, #ateliers .ateliersContainer .cardContainer .newCard .titleContainer {
+          position: absolute;
+          bottom: 0;
+          color: white;
+          width: 100%;
+          font-size: 24px;
+          text-align: left;
+          font-weight: 200;
+          height: 100%;
+          -webkit-transition: all 100ms ease-out;
+          -o-transition: all 100ms ease-out;
+          transition: all 100ms ease-out;
+          line-height: 1.5; }
+          #ateliers .ateliersContainer .cardContainer .card .titleContainer:hover .hoverCard, #ateliers .ateliersContainer .cardContainer .newCard .titleContainer:hover .hoverCard {
+            opacity: 0.8; }
+          #ateliers .ateliersContainer .cardContainer .card .titleContainer .hoverCard, #ateliers .ateliersContainer .cardContainer .newCard .titleContainer .hoverCard {
+            background: black;
+            opacity: 0.2;
+            width: 100%;
+            height: 100%; }
+          #ateliers .ateliersContainer .cardContainer .card .titleContainer .optionsContainer, #ateliers .ateliersContainer .cardContainer .newCard .titleContainer .optionsContainer {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            cursor: pointer;
+            padding: 10px 20px;
+            z-index: 500; }
+            #ateliers .ateliersContainer .cardContainer .card .titleContainer .optionsContainer:hover, #ateliers .ateliersContainer .cardContainer .newCard .titleContainer .optionsContainer:hover {
+              color: #f39c12; }
+          #ateliers .ateliersContainer .cardContainer .card .titleContainer .optionListContainer, #ateliers .ateliersContainer .cardContainer .newCard .titleContainer .optionListContainer {
+            position: absolute;
+            right: 0;
+            top: 60%;
+            -webkit-transform: translateX(80%);
+            -ms-transform: translateX(80%);
+            transform: translateX(80%);
+            width: 100px;
+            -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            font-weight: 300;
+            font-size: 16px;
+            color: #2980b9; }
+            #ateliers .ateliersContainer .cardContainer .card .titleContainer .optionListContainer ul li, #ateliers .ateliersContainer .cardContainer .newCard .titleContainer .optionListContainer ul li {
+              background: white;
+              padding: 10px;
+              cursor: pointer; }
+              #ateliers .ateliersContainer .cardContainer .card .titleContainer .optionListContainer ul li:hover, #ateliers .ateliersContainer .cardContainer .newCard .titleContainer .optionListContainer ul li:hover {
+                font-weight: 500; }
+            #ateliers .ateliersContainer .cardContainer .card .titleContainer .optionListContainer ul .edit:hover, #ateliers .ateliersContainer .cardContainer .newCard .titleContainer .optionListContainer ul .edit:hover {
+              color: #f39c12; }
+            #ateliers .ateliersContainer .cardContainer .card .titleContainer .optionListContainer ul .delete:hover, #ateliers .ateliersContainer .cardContainer .newCard .titleContainer .optionListContainer ul .delete:hover {
+              color: #e74c3c; }
+          #ateliers .ateliersContainer .cardContainer .card .titleContainer .textContainer, #ateliers .ateliersContainer .cardContainer .newCard .titleContainer .textContainer {
+            position: absolute;
+            width: 80%;
+            text-align: center;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -webkit-transition: all 300ms ease;
+            -o-transition: all 300ms ease;
+            transition: all 300ms ease; }
+      #ateliers .ateliersContainer .cardContainer .newCard .titleContainer {
+        color: #2980b9;
+        font-size: 60px;
+        font-weight: bold; }
+        #ateliers .ateliersContainer .cardContainer .newCard .titleContainer:hover .hoverCard {
+          opacity: 0.2; }
+        #ateliers .ateliersContainer .cardContainer .newCard .titleContainer .hoverCard {
+          opacity: 0; }
+        #ateliers .ateliersContainer .cardContainer .newCard .titleContainer p {
+          font-size: 15px; }
+  #ateliers .hide {
+    opacity: 0;
+    visibility: hidden; }
+  #ateliers .newAtelierFormContainer {
+    position: fixed;
+    z-index: 2000;
+    width: 40%;
+    background: white;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease; }
+    #ateliers .newAtelierFormContainer .chooseFileContainer {
+      width: 100%;
+      height: 30vh;
+      background: #2980b9;
+      position: relative;
+      background-size: cover;
+      background-position: center; }
+      #ateliers .newAtelierFormContainer .chooseFileContainer input {
+        opacity: 0;
+        visibility: hidden;
+        z-index: -1; }
+      #ateliers .newAtelierFormContainer .chooseFileContainer label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90px;
+        height: 90px;
+        border-radius: 100%;
+        background: #f39c12;
+        color: white;
+        cursor: pointer;
+        -webkit-transition: all 100ms ease;
+        -o-transition: all 100ms ease;
+        transition: all 100ms ease;
+        -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+        #ateliers .newAtelierFormContainer .chooseFileContainer label:hover {
+          border: 3px solid #f39c12;
+          background: none; }
+        #ateliers .newAtelierFormContainer .chooseFileContainer label .imageLabelContainer {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+          font-size: 12px; }
+          #ateliers .newAtelierFormContainer .chooseFileContainer label .imageLabelContainer span {
+            font-size: 35px; }
+    #ateliers .newAtelierFormContainer .informationContainer {
+      width: 70%;
+      position: relative;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%); }
+      #ateliers .newAtelierFormContainer .informationContainer .btnContainer {
+        position: absolute;
+        z-index: 1000;
+        right: 0;
+        top: 0;
+        -webkit-transform: translate(50%, -50%);
+        -ms-transform: translate(50%, -50%);
+        transform: translate(50%, -50%);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row; }
+        #ateliers .newAtelierFormContainer .informationContainer .btnContainer .btn {
+          width: 50px;
+          height: 50px;
+          position: relative;
+          border-radius: 100%;
+          -webkit-transition: all 100ms ease;
+          -o-transition: all 100ms ease;
+          transition: all 100ms ease;
+          cursor: pointer;
+          color: white;
+          margin: 0 5px;
+          font-size: 16px;
+          -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+          #ateliers .newAtelierFormContainer .informationContainer .btnContainer .btn span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+        #ateliers .newAtelierFormContainer .informationContainer .btnContainer .saveAtelierContainer {
+          background: #34495e; }
+          #ateliers .newAtelierFormContainer .informationContainer .btnContainer .saveAtelierContainer:hover {
+            background: #222222; }
+        #ateliers .newAtelierFormContainer .informationContainer .btnContainer .cancelAtelierContainer {
+          background: #e74c3c; }
+          #ateliers .newAtelierFormContainer .informationContainer .btnContainer .cancelAtelierContainer:hover {
+            background: #c0392b; }
+      #ateliers .newAtelierFormContainer .informationContainer .titleContainer {
+        width: 100%;
+        height: 80px;
+        position: relative; }
+        #ateliers .newAtelierFormContainer .informationContainer .titleContainer label {
+          position: absolute;
+          bottom: 0;
+          left: 20px;
+          z-index: 700;
+          padding: 5px 10px;
+          font-weight: 300;
+          color: #777;
+          opacity: 0.8;
+          font-size: 12px;
+          -webkit-transition: all 300ms ease;
+          -o-transition: all 300ms ease;
+          transition: all 300ms ease; }
+        #ateliers .newAtelierFormContainer .informationContainer .titleContainer .moveLabel {
+          -webkit-transform: translate(-10px, -40px);
+          -ms-transform: translate(-10px, -40px);
+          transform: translate(-10px, -40px);
+          color: #2980b9;
+          font-size: 14px;
+          font-weight: 500; }
+        #ateliers .newAtelierFormContainer .informationContainer .titleContainer input {
+          position: absolute;
+          bottom: 0;
+          left: 20px;
+          width: 80%;
+          padding: 10px;
+          border: none;
+          -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          background: none;
+          z-index: 800; }
+      #ateliers .newAtelierFormContainer .informationContainer .emptyInput {
+        border: 1px solid #e74c3c !important; }
+      #ateliers .newAtelierFormContainer .informationContainer .daysContainer {
+        width: 100%;
+        padding: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center; }
+        #ateliers .newAtelierFormContainer .informationContainer .daysContainer .day {
+          width: 14%;
+          height: 50px;
+          -webkit-transition: all 100ms ease;
+          -o-transition: all 100ms ease;
+          transition: all 100ms ease;
+          position: relative;
+          text-align: center; }
+          #ateliers .newAtelierFormContainer .informationContainer .daysContainer .day .dayText {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            cursor: pointer; }
+            #ateliers .newAtelierFormContainer .informationContainer .daysContainer .day .dayText span {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              -webkit-transform: translate(-50%, -50%);
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
+        #ateliers .newAtelierFormContainer .informationContainer .daysContainer .daySelected .dayText {
+          border-radius: 100%;
+          background: #2980b9;
+          color: white; }
+      #ateliers .newAtelierFormContainer .informationContainer .timeContainer {
+        width: 100%;
+        height: 40px;
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row; }
+        #ateliers .newAtelierFormContainer .informationContainer .timeContainer .inputContainer {
+          width: 50%;
+          heigth: 100%;
+          position: relative; }
+          #ateliers .newAtelierFormContainer .informationContainer .timeContainer .inputContainer label {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            left: 20px;
+            z-index: 700;
+            padding: 5px 10px;
+            font-weight: 300;
+            color: #777;
+            opacity: 0.8;
+            font-size: 12px;
+            -webkit-transition: all 300ms ease;
+            -o-transition: all 300ms ease;
+            transition: all 300ms ease; }
+          #ateliers .newAtelierFormContainer .informationContainer .timeContainer .inputContainer .moveLabel {
+            -webkit-transform: translate(-10px, -50px);
+            -ms-transform: translate(-10px, -50px);
+            transform: translate(-10px, -50px);
+            color: #2980b9;
+            font-size: 14px;
+            font-weight: 500; }
+          #ateliers .newAtelierFormContainer .informationContainer .timeContainer .inputContainer input {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            left: 20px;
+            width: 70%;
+            padding: 10px;
+            border: none;
+            -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            background: none;
+            z-index: 800; }
+      #ateliers .newAtelierFormContainer .informationContainer .descContainer {
+        width: 100%;
+        height: 150px;
+        padding: 30px 0; }
+        #ateliers .newAtelierFormContainer .informationContainer .descContainer textarea {
+          width: 100%;
+          height: 100%;
+          border: 1px solid white;
+          border-radius: 2px;
+          -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          background: white;
+          padding: 10px;
+          resize: none; }

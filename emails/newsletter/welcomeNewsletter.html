@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BEM-VINDO À NOSSA NEWSLETTER</title>
+  <link href="newsletter.css" rel="stylesheet">
+  
+
+  <style>
+    .emailBackground {
+  background: #eeeeee;
+  height: 100vh;
+  padding: 20px;
+  font-family: sans-serif; }
+  .emailBackground .preHeader {
+    color: #eee;
+    font-size: 5px; }
+  .emailBackground .emailContainer {
+    background: white;
+    max-width: 500px;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: center; }
+    .emailBackground .emailContainer .titleContainer {
+      padding: 20px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 300;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column; }
+      .emailBackground .emailContainer .titleContainer img {
+        max-width: 50px;
+        height: auto;
+        margin-bottom: 20px; }
+    .emailBackground .emailContainer .emailHeader {
+      min-width: 100%;
+      padding: 30px 0;
+      background: #2980b9;
+      text-align: center;
+      font-size: 40px;
+      font-weight: 300;
+      color: white; }
+    .emailBackground .emailContainer .emailContent {
+      padding: 20px;
+      max-width: 500px;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 300;
+      color: #666; }
+      .emailBackground .emailContainer .emailContent .dotsContainer {
+        margin: 20px auto;
+        min-width: 70px;
+        padding: 10px 0; }
+        .emailBackground .emailContainer .emailContent .dotsContainer .dot {
+          width: 10px;
+          height: 10px;
+          background: #f39c12;
+          border-radius: 100%;
+          display: inline-block;
+          margin: 0 5px; }
+      .emailBackground .emailContainer .emailContent .siteBtnContainer {
+        padding: 10px 20px;
+        background: #2980b9;
+        color: white;
+        margin: 0 auto;
+        cursor: pointer;
+        border-radius: 5px; }
+        .emailBackground .emailContainer .emailContent .siteBtnContainer a {
+          color: white; }
+        .emailBackground .emailContainer .emailContent .siteBtnContainer:hover {
+          background: #34495e; }
+  .emailBackground .emailFooter {
+    font-size: 10px;
+    text-align: center;
+    padding: 10px; }
+
+a {
+  text-decoration: none; }
+
+  </style>
+</head>
+
+<body>
+  <div class="emailBackground">
+    <div class="preHeader">Seja bem-vindo à newsletter da Agirar! Agradecemos imenso a sua subscrição!
+    </div>
+    <div class="emailContainer">
+      <div class="titleContainer">
+        <img src="http://res.cloudinary.com/agirar/image/upload/v1514674954/LogoAgirar_lf6vgi.png" alt=""> 
+         <p>Associação de Familiares e Amigos de Pessoas com Psicose</p> 
+      </div>
+      <div class="emailHeader">
+        SEJA BEM-VINDO
+      </div>
+      <div class="emailContent">
+        Seja bem-vindo à newsletter da Agirar! Agradecemos a sua subscrição! A partir de agora irá receber mensalmente as nossas
+        novidades!
+
+        <div class="dotsContainer">
+          <div class="dot"> </div>
+          <div class="dot"> </div>
+          <div class="dot"></div>
+        </div>
+
+        <div class="siteBtnContainer">
+          <a target="_blank" href="http://www.agirar.pt">VISITAR O SITE DA AGIRAR</a>
+        </div>
+      </div>
+     
+    </div>
+    <div class="emailFooter">
+      <a href="https://www.facebook.com/agirarassociacao/" target="_blank">facebook</a> | <a href="">Cancelar subscrição</a>
+      </div>
+  </div>
+</body>
+
+</html>

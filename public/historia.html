@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto:100,300,400,500,700" rel="stylesheet">
+  <link href="assets/css/timeline/compiledTimeline.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <script src="https://use.fontawesome.com/c633fd4a23.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/timeline/timeline.js"></script>
+
+  <section id="history">
+      <div class="loadingContainer">
+          <div class="loaingContentContainer">
+            <div class="spiner"></div>
+            Aguarde um momento...
+          </div>
+        </div>
+      <div class="blackBackground"></div>
+    <div class="deleteDialogContainer">
+      <span class="text">Eliminar Marco?</span>
+      <div class="btnContainer">
+        <span class="confirm">SIM</span>
+        <span class="cancel">NÃO</span>
+      </div>
+    </div>
+    <div class="errorMessage">
+      <small>
+        <span class="fa fa-exclamation-triangle"></span> &nbsp;
+        <span class="msg"></span>
+      </small>
+    </div>
+    <div class="successMessage">
+      <small>
+        <span class="fa fa-check"></span> &nbsp;
+        <span class="msg"></span>
+      </small>
+    </div>
+    <div class="blurContainer hide"></div>
+
+    <div class="newTimeFormContainer hide">
+        <div class="loadingContainer hide">
+          <div class="loaingContentContainer">
+            <div class="spiner"></div>
+            Aguarde um momento...
+          </div>
+        </div>
+        <form enctype="multipart/form-data" id="submitTimeForm">
+          <div class="chooseFileContainer">
+            <input type="file" name="image" id="timeImage">
+            <label for="timeImage">
+              <div class="imageLabelContainer">
+                <p>
+                  <span class="fa fa-upload"></span>
+                </p>
+              </div>
+            </label>
+          </div>
+          <div class="informationContainer">
+            <div class="btnContainer">
+              <div class="btn saveTimeContainer">
+                <span class="fa fa-floppy-o"></span>
+              </div>
+              <div class="btn cancelTimeContainer">
+                <span class="fa fa-times"></span>
+              </div>
+            </div>
+  
+            <div class="inputContainer tituloContainer">
+              <label for="timeNome">Título do Marco</label>
+              <input type="text" name="timeNome" id="timeNome">
+            </div>
+           
+            <div class="inputContainer dataContainer">
+                <label for="data">Data</label>
+                <input type="text" name="data" id="data">
+              </div>
+            <div class="descContainer">
+              <textarea placeholder="Descrição" name="description" id="description"></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+    <div class="historyOptionsContainer">
+      <div class="historyStatsContainer">
+        <div class="itemStatContainer">
+          <div class="statIconContainer totalIcon">
+            <span class="fa fa-hashtag"></span>
+          </div>
+          <span class="totalCardNumber"></span> &nbsp; Marcos da AGIRAR
+        </div>
+        <div class="itemStatContainer totalVisibleCardsContainer">
+          <div class="statIconContainer visibleCards">
+            <span class="fa fa-eye"></span>
+          </div>
+          <div class="statContent">
+            <span class="totalVisibleCards"></span> &nbsp; Marcos visíveis
+            <span class="editVisibleCards fa fa-pencil"></span>
+          </div>
+
+        </div>
+        <div class="itemStatContainer">
+            <div class="addNewTimeBtn">
+                ADICIONAR MARCO
+              </div>
+        </div>
+      </div>
+    </div>
+    <div class="historyContainer">
+      <div class="historyListContainer"></div>
+    </div>
+  </section>
+</body>
+
+</html>

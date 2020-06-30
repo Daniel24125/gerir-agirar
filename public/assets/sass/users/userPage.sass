@@ -1,0 +1,400 @@
+.usersContainer
+  width: 100%
+  height: 100vh
+  position: relative
+  background: $flatGrey
+  overflow-y: auto
+  overflow-x: hidden
+  .cardContainer
+    width: 400px
+    height: 500px
+    background: white
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+    border-radius: 2px
+    z-index: 600
+    position: fixed
+    @include centerHorVer
+    opacity: 0 
+    visibility: hidden
+    transition: all 300ms ease
+    .closeCard
+      position: absolute
+      right: 0
+      top: 0
+      padding: 10px
+      color: white
+      cursor: pointer
+      &:hover
+        color: $textColor
+    .cardHeaderContainer
+      width: 100%
+      height: 30%
+      background: url("../../img/cardBG.jpg");
+      background-position: center
+      background-size: cover
+    .cardContentContainer
+      position: relative
+      width: 100%
+      .avatarContainer
+        width: 80px
+        height: 80px
+        color: white
+        background: $flatBlue
+        border-radius: 100%
+        border: 3px solid white
+        position: relative
+        top: -30px 
+        @include centerHor
+        font-size: 30px
+        span
+          position: absolute
+          @include centerHorVer
+      .mainTextContainer
+        width: 100%
+        position: relative
+        text-align: center
+        top: -20px
+        p
+          margin-bottom: 5px
+        .name
+          font-size: 18px
+          font-weight: bold
+        .email,.phone
+          color: $textColor
+      .otherInfoContainer
+        width: 100%
+        
+        color: $textColor
+        .infoContainer
+          width: 100%
+          text-align: left
+          padding: 5px
+          .icon
+            color: $flatBlue
+            margin-left: 20px   
+            font-size: 16px      
+  .blackBackground
+    width: 100%
+    height: 100%
+    background: black
+    opacity: 0
+    visibility: hidden
+    position: fixed
+    z-index: 100
+  .deleteDialogContainer
+    width: 30%
+    height: 150px 
+    background: white
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+    border-radius: 2px
+    position: fixed
+    @include centerHorVer
+    z-index: 101
+    font-size: 20px
+    opacity: 0
+    visibility: hidden
+    .text 
+      position: absolute
+      top: 30px
+      left: 40px
+      color: $textColor
+    .btnContainer
+      position: absolute
+      bottom: 20px
+      right: 0
+      span 
+        padding: 20px
+        cursor: pointer
+        color: $flatBlue
+      .confirm:hover
+        color: $flatGreen
+      .cancel:hover
+        color: $flatRed
+      
+  &::-webkit-scrollbar 
+    width: 6px
+  &::-webkit-scrollbar-track 
+    background: $scrollBarBk
+  &::-webkit-scrollbar-thumb
+    background: $scrollBar
+  .formMessage, .formMessageCounts,.noSearchResults
+    position: absolute
+    top: 0
+    width: 100%
+    padding: 15px 20px 
+    background-color: $errorBackground
+    color: $flatRed
+    z-index: 700
+    transition: all 500ms ease-out
+    transform: translateY(-100%)  
+    opacity: 0
+    visibility: hidden      
+  .showFormMessage
+    transform: translateY(0)
+    opacity: 1
+    visibility: visible 
+  .blurBackground
+    width: 100%
+    height: 100%
+    background: url("../../img/blur.jpg")
+    position: fixed
+    z-index: 500
+    opacity: 0
+    visibility: hidden
+  .userFormContainer
+    width: 100%
+    height: 90%
+    position: fixed
+    @include centerVer
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: center
+    z-index: 600
+    transition: all 300ms ease-out
+    opacity: 0
+    visibility: hidden
+    .fillUserData
+      width: 30%
+      min-height: 350px
+      background: white
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+      border-radius: 2px
+      margin: 0 40px
+      padding: 20px
+      position: relative
+      .saveNewUser
+        position: absolute
+        bottom: 0
+        @include centerHor 
+        width: 100px
+        height: 40px
+        font-size: 12px
+        background: $flatBlue
+        color: white
+        cursor: pointer
+        &:hover
+          background: $flatDarkBlue
+        .btnContent
+          position: absolute
+          text-align: center
+          @include centerVer
+          width: 100%
+
+      .fieldContainer
+        padding: 10px
+        position: relative
+        height: 60px
+        margin: 30px 0
+        .parFieldContainer
+          position: relative  
+          width: 49%
+          display: inline-block
+        label
+          position: absolute
+          @include centerVer
+          z-index: 700
+          padding: 0 10px
+          font-weight: 300
+          color: $textColor
+          opacity: 0.8
+          font-size: 12px
+          transition: all 300ms ease
+        .moveLabel
+          transform: translate(-10px, -50px)
+          color: $flatBlue
+          font-size: 14px
+          font-weight: 500
+        input, select
+          position: absolute
+          @include centerVer
+          width: 90%
+          padding: 10px
+          border: none
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+          background: none
+          z-index: 800
+        .emptyInput
+          border: 1px solid $flatRed !important
+       
+  .noUsers
+    position: absolute
+    @include centerHorVer
+    color: $flatRed
+    font-size: 18px
+  .searchAreaContainer
+    position: relative
+    width: 100%
+    height: 20%
+    .searchContainer
+      position: absolute  
+      @include centerHorVer
+      width: 70%
+      text-align: center
+      form 
+        width: 100% 
+        display: flex
+        flex-direction: row
+        flex-wrap: nowrap
+        align-items: center
+        justify-content: center
+        input
+          width: 40%
+          border: none 
+          padding: 10px 20px 
+          border-radius: 3px 
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+        select
+          width: 150px
+          background: white
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+          border: none
+          padding: 10px 20px   
+          margin: 0 10px     
+          text-transform: uppercase
+          color: $flatBlue
+          font-size: 16px
+         
+          
+            
+        .searchBtn
+          float: right
+          cursor: pointer
+          height: 40px
+          width: 40px
+          color: white
+          background: $flatOrange
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+          border-radius: 3px
+          position: relative
+          transition: all 100ms ease
+          &:hover
+            background: $orangeHover
+          span 
+            position: absolute
+            @include centerHorVer
+  
+  .usersListContainerArea
+    position: relative
+    width: 100%
+    padding-bottom: 30px
+    .usersListContainer
+      width: 90%
+      height: 90%
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+      border-radius: 2px
+      position: relative
+      background: white
+      @include centerHor
+      table
+        width: 100%
+        position: relative
+        tr
+          width: 100%
+          height: 60px
+          border: 1px solid $flatGrey
+        
+          th
+            position: relative
+            width: 150px
+            min-width: 60px
+            padding: 0 10px
+            .textContainer
+              position: absolute
+              @include centerVer
+            .photo
+              background: $flatDarkGrey
+              width: 30px
+              height: 30px
+              border-radius: 100%
+              position: absolute
+              @include centerHorVer
+              padding: 5px 10px
+              span
+                position: absolute
+                @include centerHorVer
+                color: $flatGrey
+          .photoContainer
+            width: 60px
+          .options
+            .optionsBtnContainer
+              position: absolute
+              @include centerVer
+              right: 0
+              cursor: pointer
+              font-size: 16px
+              span
+                padding: 10px
+                &:hover
+                  color: grey
+              .userInfo
+                padding: 10px 0px
+                &:hover
+                  color: $flatBlue
+
+            .optionListContainer
+              position: absolute
+              right: 0
+              top: 60%
+              transform: translateX(80%)
+              width: 100px
+              box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+              font-weight: 300
+              z-index: 100
+              opacity: 0
+              visibility: hidden
+              ul
+                li 
+                  background: white
+                  padding: 10px 
+                  cursor: pointer
+                  &:hover
+                     font-weight: 500
+                .edit:hover
+                  color: $flatOrange
+                .delete:hover
+                  color: $flatRed
+#tableHeader th
+  color: $flatLightGrey
+  font-weight: 300
+
+.addUserContainer
+  position: relative
+  width: 30px
+  height: 30px
+  @include centerHor
+  background: $flatBlue
+  color: white
+  border-radius: 100%
+  cursor: pointer
+  transition: all 100ms ease
+ 
+  &:hover
+    background: $flatDarkBlue
+  span
+    position: absolute
+    @include centerHorVer           
+.closeUserForm
+  position: fixed
+  right: 30px
+  top: 30px
+  width: 50px
+  height: 50px
+  background: $flatBlue
+  color: white
+  border-radius: 100%
+  cursor: pointer
+  transition: all 100ms ease
+  font-size: 16px
+  &:hover
+    background: $flatDarkBlue
+  span
+    position: absolute
+    @include centerHorVer
+.closeUserForm
+  background: $flatRed
+  z-index: 600
+  opacity: 0 
+  visibility: hidden
+  &:hover
+    background: $flatDarkRed      

@@ -1,0 +1,28 @@
+.loadingContainer
+  width: 100% 
+  height: 100% 
+  background: white
+  position: absolute
+  z-index: 10000
+  transition: all 300ms ease
+  .loaingContentContainer
+    position: absolute
+    @include centerHorVer
+    text-align: center
+    .spiner 
+      border: 8px solid $flatGrey
+      border-top: 8px solid $flatBlue
+      border-radius: 50%
+      width: 70px
+      height: 70px
+      animation: spin 700ms ease-in-out infinite
+      margin-bottom: 20px 
+    
+
+
+@keyframes spin 
+  0% 
+    transform: rotate(0deg)
+  100% 
+    transform: rotate(360deg)
+
