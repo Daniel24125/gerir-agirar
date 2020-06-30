@@ -1,4 +1,4 @@
-var firebase = require('firebase-admin');
+var firebase = require('firebase');
 var auth = firebase.auth();
 var express = require('express');
 var cookieParser = require("cookie-parser")
@@ -13,7 +13,6 @@ router.use(cookieParser())
 router.post("/login", function(req, res) {
   var email = req.body.email;
   var pass = req.body.password;
-  console.log(firebase)
   var promise = auth.signInWithEmailAndPassword(email, pass);
   promise
     .then(function(user) {
@@ -40,6 +39,7 @@ router.post("/logout", function(req, res) {
 module.exports = {
   isAuthenticated: function(req, res, next) {
     var user = firebase.auth().currentUser;
+    console.log(user)
     if (user !== null && req.cookies["access_token"] != undefined && req.cookies["access_token"] == process.env.access_token) {
       next();
     } else {
