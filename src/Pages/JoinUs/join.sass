@@ -1,0 +1,59 @@
+.joinUsContainer
+    width: 100% 
+    display: flex 
+    flex-direction: column 
+    align-items: center 
+    padding: 100px 0
+   
+
+    .formContainer
+        padding: 50px 70px
+        width: 90%
+        max-width: 650px 
+        margin-top: 50px
+        @include mQ(400px)
+            padding: 50px 20px
+        h6 
+            width: 100%
+            text-align: center
+            margin-bottom: 30px
+            background: #FFD5A5
+            padding: 30px 0 
+        form
+            display: flex 
+            flex-direction: column 
+            .MuiFormControl-root
+                margin: 15px 0
+            button 
+                margin-top: 50px
+                color: white
+            .fileUploadContainer
+                width: 100% 
+                height: 200px 
+                background: #40C7F6
+                display: flex 
+                align-items: center 
+                justify-content: center 
+                color: white 
+                flex-direction: column
+                cursor: pointer
+                position: relative
+                &:hover .cancelImage
+                    opacity: 0.8
+                    visibility: visible
+                svg 
+                    font-size: 100px 
+                .cancelImage
+                    background: black 
+                    color: white 
+                    position: absolute
+                    display: flex 
+                    align-items: center 
+                    justify-content: center 
+                    width: 100% 
+                    height: 100%
+                    opacity: 0 
+                    visibility: hidden
+                    transition: all 300ms ease 
+                    button 
+                        margin: 0

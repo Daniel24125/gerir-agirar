@@ -1,0 +1,43 @@
+.sliderListContainer
+    width: 100% 
+    justify-content: center 
+    display: flex
+    padding: 50px  
+    .sliderCardsContainer
+        width: 100% 
+        max-width: 1400px
+        padding: 20px 50px
+        z-index: 200
+        display: flex 
+        flex-wrap: wrap 
+        justify-content: center
+        .cardContainer
+            width: 360px 
+            height: 400px
+            margin: 10px
+            .cardHeader
+                width: 100%
+                height: 50% 
+            .cardInfo
+                width: 100% 
+                padding: 10px 20px 
+                .cardFooter 
+                    width: 100% 
+                    display: flex 
+                    justify-content: flex-end
+                    margin-top: 20px
+                    .editSlider:hover 
+                        color: #FFDA83
+                    .deleteSlider:hover 
+                        color: #E9523E
+        .addSliderImage
+            display: flex 
+            align-items: center 
+            justify-content: center 
+            flex-direction: column
+            cursor: pointer
+            &:hover
+                color: white 
+                background: #00A4DD
+            svg 
+                font-size: 50px 

@@ -1,0 +1,47 @@
+.ateliersListContainer
+    width: 100% 
+    justify-content: center 
+    display: flex
+    padding: 50px  
+    .ateliersCardsContainer
+        width: 100% 
+        max-width: 1400px
+        padding: 20px 50px
+        z-index: 200
+        display: flex 
+        flex-wrap: wrap 
+        justify-content: center
+        align-items: flex-start
+        .cardContainer
+            width: 360px 
+            margin: 10px  
+            background: #F1F9FF
+            .cardHeader
+                width: 100%
+                height: 200px 
+            .cardInfo
+                width: 100% 
+                padding: 10px 20px 
+                @include mQ(700px)
+                    min-height: 500px
+                .cardFooter 
+                    width: 100% 
+                    display: flex 
+                    justify-content: flex-end
+                    margin-top: 20px
+                    .editSlider:hover 
+                        color: #FFDA83
+                    .deleteSlider:hover 
+                        color: #E9523E
+        .addAtelier
+            display: flex 
+            align-items: center 
+            justify-content: center 
+            flex-direction: column
+            cursor: pointer
+            height: 400px
+            &:hover
+                color: white 
+                background: #00A4DD
+            svg 
+                font-size: 50px 

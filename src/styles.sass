@@ -1,0 +1,75 @@
+@import "./mixins"
+@import "./nav"
+@import "./Pages/Login/login"
+@import "./Pages/Home/home"
+@import "./Pages/Associados/associados"
+@import "./Pages/Slider/slider"
+@import "./Pages/Ateliers/ateliers"
+@import "./Pages/Eventos/eventos"
+@import "./Pages/Historia/historia"
+@import "./Pages/JoinUs/join"
+
+        
+a 
+    color: inherit
+    text-decoration: none
+ul 
+    list-style-type: none
+    padding: 0 
+    margin: 0 
+
+.hide 
+    opacity: 0 
+    visibility: hidden
+    z-index: -1
+
+main 
+    z-index: 200
+    position: absolute
+    top: 0
+    width: 100% 
+    overflow: auto
+.loadingContainer 
+    width: 100% 
+    height: calc(100vh - 65px)
+    position: fixed 
+    z-index: 2000
+    display: flex 
+    align-items: center 
+    justify-content: center 
+    flex-direction: column 
+    background: white
+    .loadingText
+        margin-top: 50px
+
+
+.errorContainer
+    width: 100% 
+    height: calc(100vh - 65px)
+    display: flex 
+    justify-content: center 
+    align-items: center 
+    
+.blck
+    width: 100% 
+    height: 100vh 
+    background: black 
+    opacity: 0.8 
+    z-index: 1000
+    position: fixed 
+    top: 0 
+
+.successContainer
+    width: 100% 
+    height: calc(100vh - 65px)
+    display: flex 
+    justify-content: center 
+    align-items: center 
+    flex-direction: column 
+    background: linear-gradient(135deg, #00a4dd 0%,#ff8600 100%)
+    color: white 
+    svg 
+        font-size: 200px
+        margin-bottom: 20px
+    button 
+        margin-top: 30px 

@@ -1,0 +1,58 @@
+.historiaListContainer
+    width: 100% 
+    justify-content: center 
+    display: flex
+    padding: 50px  
+    .historiaCardsContainer
+        width: 100% 
+        max-width: 1400px
+        padding: 20px 50px
+        z-index: 200
+        display: flex 
+        flex-wrap: wrap 
+        justify-content: center
+        .cardContainer
+            width: 100%
+            max-width: 750px
+            margin: 10px
+            display: flex
+            padding: 30px 
+            .cardHeader
+                height: 100%
+                .iconContainer
+                    width: 60px
+                    height: 60px
+                    border-radius: 100% 
+
+            .cardInfo
+                width: 100% 
+                margin-left: 20px 
+                .titleContainer
+                    display: flex 
+                    height: 60px 
+                    align-items: center 
+                    .title 
+                        margin-right: 20px
+               
+
+                .cardFooter 
+                    width: 100% 
+                    display: flex 
+                    justify-content: flex-end
+                    margin-top: 20px
+                    .editSlider:hover 
+                        color: #FFDA83
+                    .deleteSlider:hover 
+                        color: #E9523E
+        .addHistoria
+            display: flex 
+            align-items: center 
+            justify-content: center 
+            flex-direction: column
+            cursor: pointer
+            height: 200px
+            &:hover
+                color: white 
+                background: #00A4DD
+            svg 
+                font-size: 50px 
