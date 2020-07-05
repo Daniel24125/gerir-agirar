@@ -41,15 +41,13 @@ const UnAuth = loadable(() => import('./Pages/UnAuth/UnAuth'))
 
 const App = () => {
   
-  const { user, isAuthenticated } = useAuth0();
-
+  const { user, isAuthenticated  } = useAuth0();
   return (
     <ThemeProvider theme={theme}>
         <CssBaseline />
-        {/* {!isAuthenticated && <LoginPage/>}
+        {!isAuthenticated && <LoginPage/>}
         {isAuthenticated && user.email === process.env.REACT_APP_AUTH0_EMAIL && <Dash/>}   
-        {isAuthenticated && user.email !== process.env.REACT_APP_AUTH0_EMAIL && <UnAuth/>}  */}
-         <Dash/>
+        {isAuthenticated && user.email !== process.env.REACT_APP_AUTH0_EMAIL && <UnAuth/>} 
       </ThemeProvider>
   );
 }

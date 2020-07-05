@@ -1,11 +1,11 @@
 import React from 'react'
 import {Typography, Paper,TextField, Select, MenuItem,FormControl, InputLabel,FormHelperText,Button} from "@material-ui/core"
-import {useSubmitAssociate, useGetUserById} from "../../Domain/useCases"
+import {useSubmitAssociate, useGetUserById, useUpdateAssociate} from "../../Domain/useCases"
 import Loading from "../../Components/Loading"
-import ErrorMessage from "../../Components/ErrorMessage"
-import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
-import { Link } from 'react-router-dom'
 import { useParams } from "react-router";
+import ErrorComponent from "../../Components/ErrorMessage"
+import UpdateFormValidated from "../../Components/UpdateFormValidated"
+import FormValidated from "../../Components/FormValidated"
 
  const JoinUs = ()=> {
     let {id} = useParams()
@@ -18,10 +18,6 @@ import { useParams } from "react-router";
     const isLoading = React.useMemo(() => {
         return userStatus === 'loading'  
         }, [userStatus])
-    const getFomatedDate = date=>{
-        const d = date.split("/")
-        return `${d[2]}/${d[1]}/${Number(d[0])+1}`
-    }
 
     const [formData, setFormData] = React.useState({
         sendData:{
@@ -55,9 +51,7 @@ import { useParams } from "react-router";
     
     React.useEffect(()=>{
         if(user) {
-            let temp_user = user
-            temp_user.dataNascimento = new Date(getFomatedDate(user.dataNascimento)).toISOString().substring(0,10)
-            setFormData({...formData, sendData: temp_user})} 
+            setFormData({...formData, sendData: user})} 
     }, [user])
 
     
@@ -155,11 +149,12 @@ import { useParams } from "react-router";
 
         if(!hasError) setFormData({...formData, validated: true})
     }
-
-    if(formData.validated) return <FormValidated data={formData.sendData}/>  
+    
+    if(formData.validated && !id) return <FormValidated submitFunction={useSubmitAssociate} redirectLink="/associados" redirectLabel="Gestão de Associados" data={formData.sendData}/>  
+    if(formData.validated && id) return <UpdateFormValidated retrieveFunction={useUpdateAssociate} redirectLink="/associados" redirectLabel="Gestão de Associados" id={id} data={formData.sendData}/>  
 
     if(isLoading) return <Loading msg={id? "A carregar dados do associado": "A carregar formulário"} />
-
+    if(!user && id ) return <ErrorComponent title="Erro" msg="O id que colocou não pertence a nenhum associado" />
     return (
         <div className="joinUsContainer">
             <Paper className="formContainer" elevation={1}>
@@ -304,29 +299,4 @@ import { useParams } from "react-router";
     )
 }
 
-const FormValidated = data =>{
-    const {
-        data: response,
-        status: submitStatus
-    } =  useSubmitAssociate(data)
-
-
-    const isLoading = React.useMemo(() => {
-        return submitStatus === 'loading'  
-    }, [submitStatus])
-    
-    if (isLoading) return <Loading msg="A submeter formulário" />
-
-    if(response.error) return <ErrorMessage title="Erro" msg="Ocurreu um erro na submissão dos seus dados. Por favor tente mais tarde" />
-    return (
-        <div className="successContainer" >
-            <InsertEmoticonIcon/>
-            <Typography variant="h3">SUCESSO</Typography>
-            <Typography variant="subtitle1">O registo foi realizado com sucesso</Typography>
-            <Button variant="contained" color="primary">
-                <Link to="/associados">Página de associados</Link> 
-            </Button>
-        </div>
-    )
-}
 export default JoinUs

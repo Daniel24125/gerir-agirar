@@ -1,52 +1,67 @@
+import { useAuth0 } from "@auth0/auth0-react";
+import Auth0 from "../Infrastructure/Auth0"
+
 export default class SliderRepository {
-    // private apiBaseUrl(): URL {
-    //   const url = new URL(process.env.REACT_APP_API_BASE!)
-    //   if (!url.pathname.endsWith('/')) url.pathname += '/'
-    //   return url
-    // }
+    auth = new Auth0()
+    apiBaseUrl(){
+        const url = new URL(process.env.REACT_APP_API_BASE)
+        if (!url.pathname.endsWith('/')) url.pathname += '/'
+        return url
+      }
+  
    
-    getSliderList = () => {
-        return (new Promise(((resolve, reject) => {
-            setTimeout(() => {
-                resolve({
-                    "-L229gfo3nZS66nLxjPc": {
-                        url: "https://images.pexels.com/photos/951290/pexels-photo-951290.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-                        title: "LOREM IPSUM",
-                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada libero vel erat elementum, sed dictum nunc tempor. Nullam auctor lobortis aliquet"
-                    },
-                    "-SBIFDVBEWIV": {
-                        url: "https://images.pexels.com/photos/269583/pexels-photo-269583.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-                        title: "LOREM IPSUM",
-                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada libero vel erat elementum, sed dictum nunc tempor. Nullam auctor lobortis aliquet"
-                    },
-                    "-IFDGERIPGNenig87098": {
-                        url: "https://images.pexels.com/photos/786799/pexels-photo-786799.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-                        title: "LOREM IPSUM",
-                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada libero vel erat elementum, sed dictum nunc tempor. Nullam auctor lobortis aliquet"
-                    },
-                    "-lfgvblwer98987987": {
-                        url: "https://images.pexels.com/photos/2549572/pexels-photo-2549572.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-                        title: "LOREM IPSUM",
-                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada libero vel erat elementum, sed dictum nunc tempor. Nullam auctor lobortis aliquet"
-                    },
-                    "-WGWER9867897WFWEFdfwef": {
-                        url: "https://images.pexels.com/photos/4403924/pexels-photo-4403924.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-                        title: "LOREM IPSUM",
-                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada libero vel erat elementum, sed dictum nunc tempor. Nullam auctor lobortis aliquet"
-                    }
-                })
-            }, 2000);
-        })))
+    getSliderList = async () => {
+        let url = this.apiBaseUrl().toString()
+        url += `slider/getSliderList`  
+        const response =  fetch(url)
+        const res = await response
+        return await res.json()
     }
-    submitSliderData = data =>{
-        return(new Promise(((resolve, reject) => {
-            setTimeout(() => {
-                resolve(
-                    {
-                        error: false
-                    }
-                   )
-            }, 3000);
-        })))
+    
+    submitSliderData = async data =>{
+        let url = this.apiBaseUrl().toString()
+        url += `slider`
+        console.log(this.auth.getTokenSilently())
+         const response =  fetch(url,{
+            method: "POST", 
+            headers:{
+            "Content-type": "application/json; charset=UTF-8", 
+            // Authorization: `Bearer ${access_token.value}` 
+            },
+            body: JSON.stringify(data)
+        })
+        return response.then(res =>res.json())
+    }
+
+    updateSliderData = (id, data) =>{
+        let url = this.apiBaseUrl().toString()
+        url += `slider`
+        const response = fetch(url,{   
+            method: "PATCH", 
+            headers:{
+            "Content-type": "application/json; charset=UTF-8", 
+            // Authorization: `Bearer ${access_token.value}` 
+            },
+            body: JSON.stringify({
+                data: data, 
+                id
+            } )
+        })
+        return response.then(res =>res.json())
+    }
+
+    deleteSlider = async id =>{
+        let url = this.apiBaseUrl().toString()
+        url += `slider`
+        const response = fetch(url,{   
+            method: "DELETE", 
+            headers:{
+            "Content-type": "application/json; charset=UTF-8", 
+            // Authorization: `Bearer ${access_token.value}` 
+            },
+            body: JSON.stringify({id})
+        })
+        const res = await response
+        return await res.json()
     }
 }

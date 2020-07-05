@@ -7,7 +7,7 @@ import {Button, Avatar} from "@material-ui/core"
     const { user, isAuthenticated } = useAuth0();
   return (
     <div className="navAccountContainer">
-      {/* <Avatar alt="Remy Sharp" src={user.picture} /> */}
+      <Avatar alt="avatar" src={user.picture} />
       <Button onClick={() => logout()}>Log Out</Button>
     </div>
   )

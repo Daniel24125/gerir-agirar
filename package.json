@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.0.0",
+    "@auth0/auth0-spa-js": "^1.10.0",
     "@loadable/component": "^5.12.0",
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
@@ -11,11 +12,13 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "express-jwt": "^6.0.0",
+    "firebase": "^7.15.5",
     "history": "^5.0.0",
+    "jwks-rsa": "^1.8.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-dropzone": "^11.0.1",
     "react-indiana-drag-scroll": "^1.6.1",
     "react-query": "^2.0.3",
     "react-router-dom": "^5.2.0",
@@ -43,5 +46,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daniel24125/gerir-agirar.git"
+  },
+  "author": "Daniel Madalena",
+  "license": "MIT"
 }

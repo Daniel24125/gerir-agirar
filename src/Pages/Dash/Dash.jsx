@@ -24,6 +24,9 @@ const Eventos = loadable(() => import('../Eventos/Eventos'))
 const Historia = loadable(() => import('../Historia/Historia'))
 const JoinUs = loadable(() => import('../JoinUs/JoinUs'))
 const ManageSlider = loadable(() => import('../ManageSlider/ManageSlider'))
+const ManageAteliers = loadable(() => import('../ManageAteliers/AteliersForm'))
+const ManageEventos = loadable(() => import('../ManageEventos/ManageEventos'))
+const ManageHistoria = loadable(() => import('../ManageHistoria/ManageHistoria'))
 
 const Dash = ()=> {
     const [hideMenu, setHideMenu] = React.useState(true) 
@@ -40,7 +43,7 @@ const Dash = ()=> {
         })  
       }, [ history])
 
-
+     
     return (
          <BrowserRouter history={history}>
             <Drawer
@@ -109,8 +112,14 @@ const Dash = ()=> {
                 <Route path="/slider/form" exact component={ManageSlider} />
                 <Route path="/slider/form/:id" exact component={ManageSlider} />
                 <Route path="/ateliers" exact component={Ateliers} />
+                <Route path="/ateliers/form" exact component={ManageAteliers} />
+                <Route path="/ateliers/form/:id" component={ManageAteliers}/> 
                 <Route path="/eventos" exact component={Eventos} />
+                <Route path="/eventos/form" exact component={ManageEventos} />
+                <Route path="/eventos/form/:id"  component={ManageEventos}/> 
                 <Route path="/historia" exact component={Historia} />
+                <Route path="/historia/form" exact component={ManageHistoria} />
+                <Route path="/historia/form/:id"  component={ManageHistoria}/> 
                 <Route path="/*" render={() => <Redirect to="/admin" />} />
               </Switch>
             </main>
