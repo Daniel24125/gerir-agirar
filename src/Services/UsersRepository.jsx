@@ -5,10 +5,15 @@ export default class UsersRepository {
       return url
     }
 
-    getUsersList = () => {
+    getUsersList = (access_token) => {
+        // console.log(access_token)
         let url = this.apiBaseUrl().toString()
         url += `users/getUsersList`
-         const response =  fetch(url)
+         const response =  fetch(url, {
+             method: "GET", 
+             headers: { authorization: `Bearer ${access_token}` }
+
+         })
         return response.then(res =>res.json())
     }
 

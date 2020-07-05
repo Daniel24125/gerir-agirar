@@ -10,11 +10,13 @@ import { Link } from 'react-router-dom'
 import DeleteItem from "../../Components/DeleteItem"
 
 const Associados = () => {
+
+
     const {
         data: users,
         status: usersStatus, 
         refetch
-      } = useGetUsers()
+        } = useGetUsers()
 
     const isLoading = React.useMemo(() => {
         return usersStatus === 'loading'
@@ -31,6 +33,7 @@ const Associados = () => {
         if(finishDelete) refetch()
     }, [finishDelete])
 
+    
     const handleClick = (event) => {
         setUserID(event.currentTarget.id)
         setAnchorEl(event.currentTarget);

@@ -5,37 +5,31 @@ import Slider from "../Services/SliderRepository"
 import Ateliers from "../Services/AteliersRepository"
 import Eventos from "../Services/EventosRepository"
 import Historia from '../Services/HistoriaRepository'
-import { useAuth0 } from "@auth0/auth0-react";
+import {useAuth0} from "@auth0/auth0-react"
 
-const domain = "dev-zokivysz.us.auth0.com";
+let at;
+
+export const useGetAccessToken = async ()=>{
+  const {  getAccessTokenSilently } = useAuth0();
+  return await getAccessTokenSilently()
+}
 
 export const useGetUsers = ()=>{
-  const { getAccessTokenSilently } = useAuth0();
-
-  try{
-    const accessToken =  getAccessTokenSilently({
-      audience: `https://${domain}/api/v2`,
-      scope: "read:current_user",
-    });
-    console.log(accessToken)
-
-  }catch(err){
-    console.log(err)
-  }
-
-    const users = Container.get(Users)
-    return useQuery({
-        queryKey: ['users_cards'],
-        queryFn:  () => {
-            const usersList =  users.getUsersList()
-            return usersList.then(res=> res)
-        },
-        config: { 
-          refetchOnWindowFocus: false,
-          refetchInterval: false,
-          refetchIntervalInBackground: false,
-        }
-      })
+  const access_token = useGetAccessToken().then(res => at = res)
+  console.log(at)
+  const users = Container.get(Users)
+  return useQuery({
+      queryKey: ['users_cards'],
+      queryFn: async () => {
+          const usersList =  await users.getUsersList(at)
+          return usersList
+      },
+      config: { 
+        refetchOnWindowFocus: false,
+        refetchInterval: false,
+        refetchIntervalInBackground: false,
+      }
+    })
 }
 
 export const useGetUserById = id=>{
@@ -122,11 +116,12 @@ export const useGetSliderList = ()=>{
 }
 
 export const useGetSliderById = id=>{
+  const slider = Container.get(Slider)
 
     return useQuery({
         queryKey: ['slider_id'],
         queryFn: async () => {
-            const items = await users.getSliderList()
+            const items = await slider.getSliderList()
             return (items[id])
         },
         config: { 
@@ -140,12 +135,7 @@ export const useGetSliderById = id=>{
 
 export const useSubmitSlider = data => {
   const submit = Container.get(Slider)
-  const accessToken = getAccessTokenSilently({
-    audience: `http://localhost/9000`,
-    scope: "write:slider",
-  });
 
-  console.log(accessToken)
   return useQuery({
       queryKey: ['submit_slider'],
       queryFn: async () => {
