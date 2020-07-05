@@ -1,8 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import Auth0 from "../Infrastructure/Auth0"
 
 export default class SliderRepository {
-    auth = new Auth0()
     apiBaseUrl(){
         const url = new URL(process.env.REACT_APP_API_BASE)
         if (!url.pathname.endsWith('/')) url.pathname += '/'
@@ -18,7 +16,7 @@ export default class SliderRepository {
         return await res.json()
     }
     
-    submitSliderData = async data =>{
+    submitSliderData = async (data, access_token) =>{
         let url = this.apiBaseUrl().toString()
         url += `slider`
         console.log(this.auth.getTokenSilently())
@@ -26,7 +24,7 @@ export default class SliderRepository {
             method: "POST", 
             headers:{
             "Content-type": "application/json; charset=UTF-8", 
-            // Authorization: `Bearer ${access_token.value}` 
+            Authorization: `Bearer ${access_token}` 
             },
             body: JSON.stringify(data)
         })

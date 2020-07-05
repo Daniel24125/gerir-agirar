@@ -7,7 +7,22 @@ import Eventos from "../Services/EventosRepository"
 import Historia from '../Services/HistoriaRepository'
 import { useAuth0 } from "@auth0/auth0-react";
 
+const domain = "dev-zokivysz.us.auth0.com";
+
 export const useGetUsers = ()=>{
+  const { getAccessTokenSilently } = useAuth0();
+
+  try{
+    const accessToken =  getAccessTokenSilently({
+      audience: `https://${domain}/api/v2`,
+      scope: "read:current_user",
+    });
+    console.log(accessToken)
+
+  }catch(err){
+    console.log(err)
+  }
+
     const users = Container.get(Users)
     return useQuery({
         queryKey: ['users_cards'],
@@ -89,6 +104,7 @@ export const useDeleteAssociate = (id) => {
 }
 
 export const useGetSliderList = ()=>{
+
     const slider = Container.get(Slider)
     return useQuery({
         queryKey: ['slider_cards'],
@@ -106,7 +122,7 @@ export const useGetSliderList = ()=>{
 }
 
 export const useGetSliderById = id=>{
-    const users = Container.get(Slider)
+
     return useQuery({
         queryKey: ['slider_id'],
         queryFn: async () => {
@@ -124,6 +140,12 @@ export const useGetSliderById = id=>{
 
 export const useSubmitSlider = data => {
   const submit = Container.get(Slider)
+  const accessToken = getAccessTokenSilently({
+    audience: `http://localhost/9000`,
+    scope: "write:slider",
+  });
+
+  console.log(accessToken)
   return useQuery({
       queryKey: ['submit_slider'],
       queryFn: async () => {
