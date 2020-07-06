@@ -46,6 +46,7 @@ const App = () => {
     if (isAuthenticated){
       process.env.REACT_APP_AUTH0_EMAIL.split(",").map(email=>{
         if(user.email === email){
+          console.log(email)
           setAllowed(true)
           return null
         }
