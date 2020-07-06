@@ -38,16 +38,26 @@ const theme = createMuiTheme({
 const LoginPage = loadable(() => import('./Pages/Login/LoginPage'))
 const Dash = loadable(() => import('./Pages/Dash/Dash'))
 const UnAuth = loadable(() => import('./Pages/UnAuth/UnAuth'))
-
 const App = () => {
-  
+  const [allowed, setAllowed] = React.useState(false)
   const { user, isAuthenticated  } = useAuth0();
+  
+  React.useEffect(()=>{
+    if (isAuthenticated){
+      process.env.REACT_APP_AUTH0_EMAIL.split(",").map(email=>{
+        if(user.email === email){
+          setAllowed(true)
+          return null
+        }
+      })
+    }
+  }, [isAuthenticated])
   return (
     <ThemeProvider theme={theme}>
         <CssBaseline />
         {!isAuthenticated && <LoginPage/>}
-        {isAuthenticated && user.email === process.env.REACT_APP_AUTH0_EMAIL && <Dash/>}   
-        {isAuthenticated && user.email !== process.env.REACT_APP_AUTH0_EMAIL && <UnAuth/>} 
+        {isAuthenticated && allowed && <Dash/>}   
+        {isAuthenticated && !allowed && <UnAuth/>} 
       </ThemeProvider>
   );
 }
