@@ -33,7 +33,9 @@ var jwtCheck = jwt({
 });
 
 app.use(cors({
-    origin: ["http://agirar.pt", "http://localhost:3000"], 
+    origin: ["http://agirar.pt", 
+    // "http://localhost:3000"
+], 
     methods:"GET,PATCH,POST,DELETE", 
     allowedHeaders: ["Content-Type,authorization", "Content-Type,X-Requested-With"]
 }))
