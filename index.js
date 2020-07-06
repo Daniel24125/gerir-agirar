@@ -64,7 +64,7 @@ app.get('/users/getUsersList', jwtCheck , (req, res, next) => {
     })    
 })
 
-app.post('/user', jwtCheck, (req, res, next) => {
+app.post('/user', (req, res, next) => {
     usersRef.push(req.body, (error)=>{
         if(error) res.send({
             error: true, 
