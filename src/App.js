@@ -41,7 +41,6 @@ const UnAuth = loadable(() => import('./Pages/UnAuth/UnAuth'))
 const App = () => {
   const [allowed, setAllowed] = React.useState(false)
   const { user, isAuthenticated  } = useAuth0();
-  console.log(process.env.REACT_APP_AUTH0_EMAIL)  
   React.useEffect(()=>{
     if (isAuthenticated){
       process.env.REACT_APP_AUTH0_EMAIL.split(",").map(email=>{
