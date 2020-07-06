@@ -59,7 +59,7 @@ const Dash = ()=> {
      }, [])
      
      
-        if(accessToken) useSetAccessToken(accessToken) 
+    useSetAccessToken(accessToken) 
     return (
          <BrowserRouter history={history}>
             <Drawer
