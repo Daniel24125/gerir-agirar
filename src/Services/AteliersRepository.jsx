@@ -12,7 +12,7 @@ export default class AteliersRepository {
         return response.then(res => res.json())
     }
 
-    submitAteliersData = async data =>{
+    submitAteliersData = async (access_token,data) =>{
       console.log(data)
       let url = this.apiBaseUrl().toString()
       url += `ateliers`
@@ -20,21 +20,21 @@ export default class AteliersRepository {
           method: "POST", 
           headers:{
           "Content-type": "application/json; charset=UTF-8", 
-          // Authorization: `Bearer ${access_token.value}` 
+          authorization: `Bearer ${access_token}`
           },
           body: JSON.stringify(data)
       })
       return response.then(res =>res.json())
   }
 
-  updateAtelierData = (id, data) =>{
+  updateAtelierData = (access_token,id, data) =>{
       let url = this.apiBaseUrl().toString()
       url += `ateliers`
       const response = fetch(url,{   
           method: "PATCH", 
           headers:{
           "Content-type": "application/json; charset=UTF-8", 
-          // Authorization: `Bearer ${access_token.value}` 
+          authorization: `Bearer ${access_token}` 
           },
           body: JSON.stringify({
               data: data, 
@@ -44,14 +44,14 @@ export default class AteliersRepository {
       return response.then(res =>res.json())
   }
 
-  deleteAtelier = async id =>{
+  deleteAtelier = async (access_token,id) =>{
       let url = this.apiBaseUrl().toString()
       url += `ateliers`
       const response = fetch(url,{   
           method: "DELETE", 
           headers:{
           "Content-type": "application/json; charset=UTF-8", 
-          // Authorization: `Bearer ${access_token.value}` 
+          authorization: `Bearer ${access_token}` 
           },
           body: JSON.stringify({id})
       })

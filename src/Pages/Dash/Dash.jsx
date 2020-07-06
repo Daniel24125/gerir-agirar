@@ -12,7 +12,8 @@ import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import HistoryIcon from '@material-ui/icons/History';
 import { Typography, Drawer,Divider  } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
-
+import {useSetAccessToken} from "../../Domain/useCases"
+import {useAuth0} from "@auth0/auth0-react"
 
 const appBarHeight = 65
 const Nav = loadable(() => import('../../Components/Nav'))
@@ -31,6 +32,7 @@ const ManageHistoria = loadable(() => import('../ManageHistoria/ManageHistoria')
 const Dash = ()=> {
     const [hideMenu, setHideMenu] = React.useState(true) 
     const closeMenu = ()=> setHideMenu(true)
+    const {  getAccessTokenSilently } = useAuth0();
 
     const history = React.useMemo(() => {
         return createBrowserHistory()
@@ -43,7 +45,9 @@ const Dash = ()=> {
         })  
       }, [ history])
 
-     
+     React.useEffect(()=>{
+        getAccessTokenSilently().then(token=> useSetAccessToken(token))
+     }, [])
     return (
          <BrowserRouter history={history}>
             <Drawer

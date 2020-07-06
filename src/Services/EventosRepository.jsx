@@ -11,28 +11,28 @@ export default class EventosRepository {
       return response.then(res => res.json())
     }
 
-    submitEventosData = async data =>{
+    submitEventosData = async (access_token,data) =>{
       let url = this.apiBaseUrl().toString()
       url += `eventos`
        const response =  fetch(url,{
           method: "POST", 
           headers:{
           "Content-type": "application/json; charset=UTF-8", 
-          // Authorization: `Bearer ${access_token.value}` 
+          authorization: `Bearer ${access_token}` 
           },
           body: JSON.stringify(data)
       })
       return response.then(res =>res.json())
   }
 
-  updateEventosData = (id, data) =>{
+  updateEventosData = (access_token,id, data) =>{
       let url = this.apiBaseUrl().toString()
       url += `eventos`
       const response = fetch(url,{   
           method: "PATCH", 
           headers:{
           "Content-type": "application/json; charset=UTF-8", 
-          // Authorization: `Bearer ${access_token.value}` 
+          authorization: `Bearer ${access_token}` 
           },
           body: JSON.stringify({
               data: data, 
@@ -42,14 +42,14 @@ export default class EventosRepository {
       return response.then(res =>res.json())
   }
 
-  deleteEventos = async id =>{
+  deleteEventos = async (access_token,id) =>{
       let url = this.apiBaseUrl().toString()
       url += `eventos`
       const response = fetch(url,{   
           method: "DELETE", 
           headers:{
           "Content-type": "application/json; charset=UTF-8", 
-          // Authorization: `Bearer ${access_token.value}` 
+          authorization: `Bearer ${access_token}` 
           },
           body: JSON.stringify({id})
       })

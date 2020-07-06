@@ -7,6 +7,8 @@ const port = process.env.PORT || 9000;
 const firebase = require('firebase');
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
+var cors = require('cors')
+
 
 firebase.initializeApp({
     apiKey: process.env.API_KEY,
@@ -23,48 +25,19 @@ var jwtCheck = jwt({
           cache: true,
           rateLimit: true,
           jwksRequestsPerMinute: 5,
-          jwksUri: 'https://dev-zokivysz.us.auth0.com/.well-known/jwks.json'
+          jwksUri: process.env.JWT_JWKSURI
     }),
-    audience: 'http://localhost:9000',
-    issuer: 'https://dev-zokivysz.us.auth0.com/',
+    audience: process.env.JWT_AUDIENCE,
+    issuer: process.env.JWT_ISSUER,
     algorithms: ['RS256']
 });
 
-// var request = require("request");
-// var options = {
-//     method: 'GET',
-//     url: 'http://localhost:9000/users/getUsersList',
-//     headers: { authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdhcVYwZnpTRlgzWWNGN0NHTEN4cSJ9.eyJpc3MiOiJodHRwczovL2Rldi16b2tpdnlzei51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDgwMjkyNDM5NTU5OTcwNTI1MzAiLCJhdWQiOlsiaHR0cDovL2xvY2FsaG9zdDo5MDAwIiwiaHR0cHM6Ly9kZXYtem9raXZ5c3oudXMuYXV0aDAuY29tL3VzZXJpbmZvIl0sImlhdCI6MTU5Mzk3MzUxNywiZXhwIjoxNTk0MDU5OTE3LCJhenAiOiJCQ3lSalR2ZHM2RUNmWEJ3S25US0J1UFVCRmJvYzZ4SSIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwifQ.C7xNerkTeNkUBQq5WWcGpt6xIUa-SGyU7D36jD4IjAI9Hi6ONNmoxOkStyV-_9B-4s816NvQaNAFA2bVz2DdfKCBc6LQtrAStGwXrGQ4hTI-MS0YM6Nv7Obwzu3fNtfdmnLQQrAa4CG5zTd2FO7-2GFJPIHpT4XVNp7CCSo_DuDKngTa89uf5NV8QBnlFkCfhGMmSqAGBgTN60K9jbypacjJs2cWbTXJOtVXrptuHpGbpsXWSZnqLk3RCWexzjWinPyGvJ6mkJZZhJEsHro9AGCQpJ8AnhBZLKPGVvExwwfnjsD6SxLGrWAQ6j_GmGAp-_ZEljtTrLFzszwvCachpQ' }
-//   };
-  
-//   request(options, function (error, response, body) {
-//     if (error) throw new Error(error);
-  
-//     console.log(body);
-//   });
-
-// Add headers
-app.use(function (req, res, next) {
-
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://agirar.pt');
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-  
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Headers', 'Authorization');
-  
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    // res.setHeader('Access-Control-Allow-Credentials', true);
-  
-    // Pass to next layer of middleware
-    next();
-  });
-
+app.use(cors({
+    origin: ["http://agirar.pt", "http://localhost:3000"], 
+    methods:"GET,PATCH,POST,DELETE", 
+    allowedHeaders: ["Content-Type,authorization", "Content-Type,X-Requested-With"]
+}))
+app.options('*', cors()) // include before other routes
 
 // PORT LISTENNING
 app.use(bodyParser.urlencoded({
@@ -89,7 +62,7 @@ app.get('/users/getUsersList', jwtCheck , (req, res, next) => {
     })    
 })
 
-app.post('/user',  (req, res, next) => {
+app.post('/user', jwtCheck, (req, res, next) => {
     usersRef.push(req.body, (error)=>{
         if(error) res.send({
             error: true, 
@@ -102,7 +75,7 @@ app.post('/user',  (req, res, next) => {
     })
 })
   
-app.patch('/user', (req, res, next) => {
+app.patch('/user', jwtCheck, (req, res, next) => {
     usersRef.child(req.body.id).set(req.body.data, (error)=>{
         if(error) res.send({
             error: true, 
@@ -116,7 +89,7 @@ app.patch('/user', (req, res, next) => {
 })
 
 
-app.delete('/user',  (req, res, next) => {  
+app.delete('/user',jwtCheck,(req, res, next) => {  
     usersRef.child(req.body.id).remove(err=>{
         if(err) res.send({
             error: true
@@ -135,7 +108,7 @@ app.get('/slider/getSliderList', (req, res, next) => {
     })    
 });
 
-app.post('/slider',(req, res, next) => {
+app.post('/slider',jwtCheck, (req, res, next) => {
     sliderRef.push(req.body, (error)=>{
         if(error) res.send({
             error: true, 
@@ -148,7 +121,7 @@ app.post('/slider',(req, res, next) => {
     })
 });
 
-app.patch('/slider', (req, res, next) => {
+app.patch('/slider', jwtCheck, (req, res, next) => {
     sliderRef.child(req.body.id).set(req.body.data, (error)=>{
         if(error) res.send({
             error: true, 
@@ -161,7 +134,7 @@ app.patch('/slider', (req, res, next) => {
     })
 });
 
-app.delete('/slider', (req, res, next) => {
+app.delete('/slider', jwtCheck, (req, res, next) => {
     sliderRef.child(req.body.id).remove(err=>{
         if(err) res.send({
             error: true
@@ -180,7 +153,7 @@ app.get('/ateliers/getAteliersList', (req, res, next) => {
     })    
 });
 
-app.post('/ateliers',(req, res, next) => {
+app.post('/ateliers',jwtCheck, (req, res, next) => {
     ateliersRef.push(req.body, (error)=>{
         if(error) res.send({
             error: true, 
@@ -193,7 +166,7 @@ app.post('/ateliers',(req, res, next) => {
     })
 });
 
-app.patch('/ateliers', (req, res, next) => {
+app.patch('/ateliers', jwtCheck, (req, res, next) => {
     ateliersRef.child(req.body.id).set(req.body.data, (error)=>{
         if(error) res.send({
             error: true, 
@@ -206,7 +179,7 @@ app.patch('/ateliers', (req, res, next) => {
     })
 });
 
-app.delete('/ateliers',(req, res, next) => {
+app.delete('/ateliers',jwtCheck, (req, res, next) => {
     ateliersRef.child(req.body.id).remove(err=>{
         if(err) res.send({
             error: true
@@ -225,7 +198,7 @@ app.get('/eventos/getEventosList', (req, res, next) => {
     })     
 });
 
-app.post('/eventos',(req, res, next) => {
+app.post('/eventos',jwtCheck, (req, res, next) => {
     eventosRef.push(req.body, (error)=>{
         if(error) res.send({
             error: true, 
@@ -238,7 +211,7 @@ app.post('/eventos',(req, res, next) => {
     })
 });
 
-app.patch('/eventos',(req, res, next) => {
+app.patch('/eventos',jwtCheck, (req, res, next) => {
     eventosRef.child(req.body.id).set(req.body.data, (error)=>{
         if(error) res.send({
             error: true, 
@@ -251,7 +224,7 @@ app.patch('/eventos',(req, res, next) => {
     })
 });
 
-app.delete('/eventos', (req, res, next) => {
+app.delete('/eventos', jwtCheck, (req, res, next) => {
     eventosRef.child(req.body.id).remove(err=>{
         if(err) res.send({
             error: true
@@ -283,7 +256,7 @@ app.post('/hist', jwtCheck,(req, res, next) => {
     })
 });
 
-app.patch('/hist',(req, res, next) => {
+app.patch('/hist',jwtCheck, (req, res, next) => {
     historiaRef.child(req.body.id).set(req.body.data, (error)=>{
         if(error) res.send({
             error: true, 
@@ -296,7 +269,7 @@ app.patch('/hist',(req, res, next) => {
     })
 });
 
-app.delete('/hist',(req, res, next) => {
+app.delete('/hist',jwtCheck, (req, res, next) => {
     historiaRef.child(req.body.id).remove(err=>{
         if(err) res.send({
             error: true

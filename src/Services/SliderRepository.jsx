@@ -1,5 +1,3 @@
-import { useAuth0 } from "@auth0/auth0-react";
-
 export default class SliderRepository {
     apiBaseUrl(){
         const url = new URL(process.env.REACT_APP_API_BASE)
@@ -16,29 +14,28 @@ export default class SliderRepository {
         return await res.json()
     }
     
-    submitSliderData = async (data, access_token) =>{
+    submitSliderData = async (access_token,data) =>{
         let url = this.apiBaseUrl().toString()
         url += `slider`
-        console.log(this.auth.getTokenSilently())
          const response =  fetch(url,{
             method: "POST", 
             headers:{
             "Content-type": "application/json; charset=UTF-8", 
-            Authorization: `Bearer ${access_token}` 
+            authorization: `Bearer ${access_token}` 
             },
             body: JSON.stringify(data)
         })
         return response.then(res =>res.json())
     }
 
-    updateSliderData = (id, data) =>{
+    updateSliderData = (access_token,id, data) =>{
         let url = this.apiBaseUrl().toString()
         url += `slider`
         const response = fetch(url,{   
             method: "PATCH", 
             headers:{
             "Content-type": "application/json; charset=UTF-8", 
-            // Authorization: `Bearer ${access_token.value}` 
+            authorization: `Bearer ${access_token}` 
             },
             body: JSON.stringify({
                 data: data, 
@@ -48,14 +45,14 @@ export default class SliderRepository {
         return response.then(res =>res.json())
     }
 
-    deleteSlider = async id =>{
+    deleteSlider = async (access_token,id) =>{
         let url = this.apiBaseUrl().toString()
         url += `slider`
         const response = fetch(url,{   
             method: "DELETE", 
             headers:{
             "Content-type": "application/json; charset=UTF-8", 
-            // Authorization: `Bearer ${access_token.value}` 
+            authorization: `Bearer ${access_token}` 
             },
             body: JSON.stringify({id})
         })

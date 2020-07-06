@@ -6,7 +6,6 @@ export default class UsersRepository {
     }
 
     getUsersList = (access_token) => {
-        // console.log(access_token)
         let url = this.apiBaseUrl().toString()
         url += `users/getUsersList`
          const response =  fetch(url, {
@@ -17,28 +16,28 @@ export default class UsersRepository {
         return response.then(res =>res.json())
     }
 
-    submitAssociateData = data =>{
+    submitAssociateData = (access_token, data) =>{
         let url = this.apiBaseUrl().toString()
         url += `user`
          const response =  fetch(url,{
             method: "POST", 
             headers:{
             "Content-type": "application/json; charset=UTF-8", 
-            // Authorization: `Bearer ${access_token.value}` 
+             authorization: `Bearer ${access_token}` 
             },
             body: JSON.stringify(data)
         })
         return response.then(res =>res.json())
     }
 
-    updateAssociateData = (id, data) =>{
+    updateAssociateData = (access_token,id, data) =>{
         let url = this.apiBaseUrl().toString()
         url += `user`
         const response = fetch(url,{   
             method: "PATCH", 
             headers:{
             "Content-type": "application/json; charset=UTF-8", 
-            // Authorization: `Bearer ${access_token.value}` 
+            authorization: `Bearer ${access_token}` 
             },
             body: JSON.stringify({
                 data: data, 
@@ -49,14 +48,14 @@ export default class UsersRepository {
         return response.then(res =>res.json())
     }
 
-    deleteAssociate = id =>{
+    deleteAssociate = (access_token,id) =>{
         let url = this.apiBaseUrl().toString()
         url += `user`
         const response = fetch(url,{   
             method: "DELETE", 
             headers:{
             "Content-type": "application/json; charset=UTF-8", 
-            // Authorization: `Bearer ${access_token.value}` 
+            authorization: `Bearer ${access_token}` 
             },
             body: JSON.stringify({id})
         })

@@ -121,7 +121,7 @@ const Associados = () => {
                     </li>
                     </>}
                     {!isLoading && !users && <>
-                        <Typography>Neste momento não existe nenhum associado registado na base de daods</Typography>
+                        <Typography>Neste momento não existe nenhum associado registado na base de dados</Typography>
                     </>}
                     {!isLoading  && users && <>
                         {Object.keys(users).map(key=>{

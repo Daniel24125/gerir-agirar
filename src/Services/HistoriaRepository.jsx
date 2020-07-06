@@ -12,28 +12,28 @@ export default class HistoriaRepository {
       return response.then(res => res.json())
     }
 
-    submitHistoriaData = async data =>{
+    submitHistoriaData = async (access_token,data) =>{
       let url = this.apiBaseUrl().toString()
       url += `hist`
        const response =  fetch(url,{
           method: "POST", 
           headers:{
           "Content-type": "application/json; charset=UTF-8", 
-          // Authorization: `Bearer ${access_token.value}` 
+          authorization: `Bearer ${access_token}` 
           },
           body: JSON.stringify(data)
       })
       return response.then(res =>res.json())
   }
 
-  updateHistoriaData = (id, data) =>{
+  updateHistoriaData = (access_token,id, data) =>{
       let url = this.apiBaseUrl().toString()
       url += `hist`
       const response = fetch(url,{   
           method: "PATCH", 
           headers:{
           "Content-type": "application/json; charset=UTF-8", 
-          // Authorization: `Bearer ${access_token.value}` 
+          authorization: `Bearer ${access_token}`
           },
           body: JSON.stringify({
               data: data, 
@@ -43,14 +43,14 @@ export default class HistoriaRepository {
       return response.then(res =>res.json())
   }
 
-  deleteHistoria = async id =>{
+  deleteHistoria = async (access_token,id) =>{
       let url = this.apiBaseUrl().toString()
       url += `hist`
       const response = fetch(url,{   
           method: "DELETE", 
           headers:{
           "Content-type": "application/json; charset=UTF-8", 
-          // Authorization: `Bearer ${access_token.value}` 
+          authorization: `Bearer ${access_token}` 
           },
           body: JSON.stringify({id})
       })

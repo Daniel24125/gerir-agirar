@@ -5,23 +5,17 @@ import Slider from "../Services/SliderRepository"
 import Ateliers from "../Services/AteliersRepository"
 import Eventos from "../Services/EventosRepository"
 import Historia from '../Services/HistoriaRepository'
-import {useAuth0} from "@auth0/auth0-react"
 
-let at;
+let accessToken 
 
-export const useGetAccessToken = async ()=>{
-  const {  getAccessTokenSilently } = useAuth0();
-  return await getAccessTokenSilently()
-}
+export const useSetAccessToken =  at => accessToken = at
 
 export const useGetUsers = ()=>{
-  const access_token = useGetAccessToken().then(res => at = res)
-  console.log(at)
   const users = Container.get(Users)
   return useQuery({
       queryKey: ['users_cards'],
       queryFn: async () => {
-          const usersList =  await users.getUsersList(at)
+          const usersList =  await users.getUsersList(accessToken)
           return usersList
       },
       config: { 
@@ -37,7 +31,7 @@ export const useGetUserById = id=>{
     return useQuery({
         queryKey: ['user_id'],
         queryFn: async () => {
-            const items = await users.getUsersList()
+            const items = await users.getUsersList(accessToken)
             return (items[id])
         },
         config: { 
@@ -54,7 +48,7 @@ export const useSubmitAssociate = data => {
     return useQuery({
         queryKey: ['submit_associate'],
         queryFn: () => {
-            const response = submit.submitAssociateData(data)
+            const response = submit.submitAssociateData(accessToken, data)
             return (response)
         },
         config: { 
@@ -70,7 +64,7 @@ export const useUpdateAssociate = (id, data) => {
   return useQuery({
       queryKey: ['update_associate'],
       queryFn: () => {
-          const response = submit.updateAssociateData(id, data)
+          const response = submit.updateAssociateData(accessToken, id, data)
           return (response)
       },
       config: { 
@@ -86,7 +80,7 @@ export const useDeleteAssociate = (id) => {
   return useQuery({
       queryKey: ['delete_associate'],
       queryFn: () => {
-          const response = submit.deleteAssociate(id)
+          const response = submit.deleteAssociate(accessToken, id)
           return (response)
       },
       config: { 
@@ -139,7 +133,7 @@ export const useSubmitSlider = data => {
   return useQuery({
       queryKey: ['submit_slider'],
       queryFn: async () => {
-          const response = await submit.submitSliderData(data)
+          const response = await submit.submitSliderData(accessToken,data)
           return (response)
       },
       config: { 
@@ -156,7 +150,7 @@ export const useUpdateSlider = (id, data) => {
   return useQuery({
       queryKey: ['update_slider'],
       queryFn: () => {
-          const response = submit.updateSliderData(id, data)
+          const response = submit.updateSliderData(accessToken,id, data)
           return (response)
       },
       config: { 
@@ -172,7 +166,7 @@ export const useDeleteSlider = (id) => {
   return useQuery({
       queryKey: ['delete_slider'],
       queryFn: () => {
-          const response = submit.deleteSlider(id)
+          const response = submit.deleteSlider(accessToken, id)
           return (response)
       },
       config: { 
@@ -223,7 +217,7 @@ const submit = Container.get(Ateliers)
 return useQuery({
     queryKey: ['submit_atelier'],
     queryFn: async () => {
-        const response = await submit.submitAteliersData(data)
+        const response = await submit.submitAteliersData(accessToken,data)
         return (response)
     },
     config: { 
@@ -240,7 +234,7 @@ const submit = Container.get(Ateliers)
 return useQuery({
     queryKey: ['update_atelier'],
     queryFn: () => {
-        const response = submit.updateAtelierData(id, data)
+        const response = submit.updateAtelierData(accessToken,id, data)
         return (response)
     },
     config: { 
@@ -256,7 +250,7 @@ const submit = Container.get(Ateliers)
 return useQuery({
     queryKey: ['delete_atelier'],
     queryFn: () => {
-        const response = submit.deleteAtelier(id)
+        const response = submit.deleteAtelier(accessToken,id)
         return (response)
     },
     config: { 
@@ -306,7 +300,7 @@ const submit = Container.get(Eventos)
 return useQuery({
     queryKey: ['submit_eventos'],
     queryFn: async () => {
-        const response = await submit.submitEventosData(data)
+        const response = await submit.submitEventosData(accessToken,data)
         return (response)
     },
     config: { 
@@ -323,7 +317,7 @@ const submit = Container.get(Eventos)
 return useQuery({
     queryKey: ['update_eventos'],
     queryFn: () => {
-        const response = submit.updateEventosData(id, data)
+        const response = submit.updateEventosData(accessToken,id, data)
         return (response)
     },
     config: { 
@@ -339,7 +333,7 @@ const submit = Container.get(Eventos)
 return useQuery({
     queryKey: ['delete_eventos'],
     queryFn: () => {
-        const response = submit.deleteEventos(id)
+        const response = submit.deleteEventos(accessToken,id)
         return (response)
     },
     config: { 
@@ -389,7 +383,7 @@ const submit = Container.get(Historia)
 return useQuery({
     queryKey: ['submit_historia'],
     queryFn: async () => {
-        const response = await submit.submitHistoriaData(data)
+        const response = await submit.submitHistoriaData(accessToken,data)
         return (response)
     },
     config: { 
@@ -406,7 +400,7 @@ const submit = Container.get(Historia)
 return useQuery({
     queryKey: ['update_historia'],
     queryFn: () => {
-        const response = submit.updateHistoriaData(id, data)
+        const response = submit.updateHistoriaData(accessToken,id, data)
         return (response)
     },
     config: { 
@@ -422,7 +416,7 @@ const submit = Container.get(Historia)
 return useQuery({
     queryKey: ['delete_historia'],
     queryFn: () => {
-        const response = submit.deleteHistoria(id)
+        const response = submit.deleteHistoria(accessToken,id)
         return (response)
     },
     config: { 
