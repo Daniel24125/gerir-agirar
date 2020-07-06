@@ -8,10 +8,7 @@ import Historia from '../Services/HistoriaRepository'
 
 let accessToken 
 
-export const useSetAccessToken =  at => {
-  console.log(at)  
-  accessToken = at
-}
+export const useSetAccessToken =  at => accessToken = at
 
 export const useGetUsers = ()=>{
   const users = Container.get(Users)

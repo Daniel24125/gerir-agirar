@@ -33,11 +33,13 @@ const Dash = ()=> {
     const [hideMenu, setHideMenu] = React.useState(true) 
     const closeMenu = ()=> setHideMenu(true)
     const {  getAccessTokenSilently } = useAuth0();
+    const [accessToken, setAccessToken] = React.useState(null) 
+
+
     const history = React.useMemo(() => {
         return createBrowserHistory()
       }, [])
-    
-      
+   
       React.useEffect(() => {
         return history.listen(()=>{
           window.scrollTo(0,0)
@@ -45,17 +47,19 @@ const Dash = ()=> {
       }, [ history])
 
      React.useEffect(()=>{
-        const setAccessToken = async () => {        
+        const setAccessTokenFun = async () => {        
             try {
                 const access_token = await getAccessTokenSilently();
-                useSetAccessToken(access_token)
+                setAccessToken(access_token)
             } catch (e) {
               console.log(e.message);
             }
           };
-          setAccessToken();
+          setAccessTokenFun()
      }, [])
-
+     
+     
+        if(accessToken) useSetAccessToken(accessToken) 
     return (
          <BrowserRouter history={history}>
             <Drawer
